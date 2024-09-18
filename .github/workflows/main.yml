@@ -2,7 +2,7 @@ name: Build and Run Docker Container
 
 on:
   schedule:
-    - cron: '00 18 * * 1-5' 
+    - cron: '42 5 * * 1-5' 
 
 jobs:
   build-and-run:
