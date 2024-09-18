@@ -35,7 +35,7 @@ jobs:
           body: |
             Dear Team,
 
-            Please find the attached smoke test report for OW Automation.
+            Please find the attached smoke test report for PW Automation.
 
             Regards,
             PM Team
