@@ -190,6 +190,8 @@ class Testone(BaseClass):
 
         elif window_size["width"] > 767 and window_size["width"] < 981:
 
+            self.driver.get("https://www.physiciansweekly.com/specialties/")
+
             log.info("start")
 
             selectors_and_properties = [
@@ -341,7 +343,7 @@ class Testone(BaseClass):
             log.info("All links verified successfully")
 
         elif window_size["width"] <= 767:
-
+            self.driver.get("https://www.physiciansweekly.com/specialties/")
             log.info("start")
 
             selectors_and_properties = [

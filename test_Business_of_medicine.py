@@ -438,7 +438,9 @@ class Testone(BaseClass):
 
         elif window_size["width"] <= 767:
 
-            self.driver.get("https://www.physiciansweekly.com/meeting-coverage/")
+            self.driver.get(
+                "https://www.physiciansweekly.com/category/business-of-medicine/"
+            )
             try:
                 popup = self.driver.find_element(
                     By.CSS_SELECTOR,

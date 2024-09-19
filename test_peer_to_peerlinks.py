@@ -27,7 +27,7 @@ class Testone(BaseClass):
         log = self.getLogger()
         log.info(name)
         helper = SeleniumHelper(self.driver)
-        self.driver.get("https://www.physiciansweekly.com/deep-dives/spotlight/")
+        self.driver.get("https://www.physiciansweekly.com/deep-dives/peer-to-peer/")
         opened_links = []
         main_window = self.driver.current_window_handle
         window_size = self.driver.get_window_size()

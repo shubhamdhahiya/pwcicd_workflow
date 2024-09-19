@@ -18,7 +18,7 @@ import pytest
 class Testone(BaseClass):
     @pytest.mark.run(order=43)
     @pytest.mark.dependency(depends=["test_Spotlightprogramelinks"])
-    def test_Meetingsbriefprograme(self):
+    def test_spotprograme(self):
         wait = WebDriverWait(self.driver, 20)
         name = self.driver.name
 
@@ -271,18 +271,7 @@ class Testone(BaseClass):
 
             log.info("start")
 
-            self.driver.get("https://www.physiciansweekly.com/meeting-coverage/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            log.info("start")
-
-            self.driver.get("https://www.physiciansweekly.com/meeting-coverage/")
+            self.driver.get("https://www.physiciansweekly.com/deep-dives/spotlight/")
             try:
                 popup = self.driver.find_element(
                     By.CSS_SELECTOR,
@@ -514,7 +503,7 @@ class Testone(BaseClass):
 
         elif window_size["width"] <= 767:
 
-            self.driver.get("https://www.physiciansweekly.com/meeting-coverage/")
+            self.driver.get("https://www.physiciansweekly.com/deep-dives/spotlight/")
             try:
                 popup = self.driver.find_element(
                     By.CSS_SELECTOR,

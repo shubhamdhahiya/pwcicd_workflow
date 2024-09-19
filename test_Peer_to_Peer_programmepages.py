@@ -271,18 +271,7 @@ class Testone(BaseClass):
 
             log.info("start")
 
-            self.driver.get("https://www.physiciansweekly.com/meeting-coverage/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            log.info("start")
-
-            self.driver.get("https://www.physiciansweekly.com/meeting-coverage/")
+            self.driver.get("https://www.physiciansweekly.com/deep-dives/peer-to-peer/")
             try:
                 popup = self.driver.find_element(
                     By.CSS_SELECTOR,
@@ -301,7 +290,7 @@ class Testone(BaseClass):
 
             readmore = (
                 By.CSS_SELECTOR,
-                ".spotlights-post-content p.read-more-link a",
+                "p a.more-link",
             )
             readmorebutton = wait.until(EC.presence_of_all_elements_located(readmore))
             for button in readmorebutton:
@@ -531,10 +520,7 @@ class Testone(BaseClass):
             else:  # Windows or other
                 key_to_hold = Keys.CONTROL
 
-            readmore = (
-                By.CSS_SELECTOR,
-                ".spotlights-post-content p.read-more-link a",
-            )
+            readmore = (By.CSS_SELECTOR, "p a.more-link")
             readmorebutton = wait.until(EC.presence_of_all_elements_located(readmore))
             for button in readmorebutton:
                 Ac.key_down(key_to_hold).click(button).key_up(key_to_hold).perform()
