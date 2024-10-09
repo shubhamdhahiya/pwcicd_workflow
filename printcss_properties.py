@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = webdriver.Chrome()
-driver.get("https://oncweekly.com/")
+driver.get("https://www.physiciansweekly.com/specialties/")
 driver.maximize_window()
 window_size = driver.get_window_size()
 
@@ -18,7 +18,7 @@ except Exception:
 
 elements = driver.find_elements(
     By.CSS_SELECTOR,
-    ".wp-pagenavi a",
+    "#et-boc .breadcrumb #crumbs",
 )
 
 
@@ -27,12 +27,13 @@ fetched_css_properties = []
 for element in elements:
 
     d = [
-        "margin",
+        "text-transform",
+        "line-height",
         "font-size",
-        "display",
-        "font-weight",
         "color",
-        "border",
+        "font-weight",
+        "font-style",
+        "font-family",
     ]
     for i in d:
         fetched_css_properties.append(element.value_of_css_property(i))

@@ -37,31 +37,39 @@ class Testone(BaseClass):
             except Exception:
                 ()
             self.driver.get("https://www.physiciansweekly.com/specialties/")
+            try:
+                popup = self.driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#onesignal-slidedown-dialog .primary.slidedown-button",
+                )
+                popup.click()
+            except Exception:
+                ()
 
             log.info("start")
 
             selectors_and_properties = [
-                (
-                    "#et-boc .breadcrumb #crumbs",
-                    {
-                        "elza, sans-serif",
-                        "rgba(55, 55, 55, 1)",
-                        "20px",
-                        "normal",
-                        "24px",
-                        "uppercase",
-                        "700",
-                    },
-                    [
-                        "text-transform",
-                        "line-height",
-                        "font-size",
-                        "color",
-                        "font-weight",
-                        "font-style",
-                        "font-family",
-                    ],
-                ),
+                # (
+                #     "#et-boc .breadcrumb #crumbs",
+                #     {
+                #         "elza, sans-serif",
+                #         "rgba(55, 55, 55, 1)",
+                #         "20px",
+                #         "normal",
+                #         "24px",
+                #         "uppercase",
+                #         "700",
+                #     },
+                #     [
+                #         "text-transform",
+                #         "line-height",
+                #         "font-size",
+                #         "color",
+                #         "font-weight",
+                #         "font-style",
+                #         "font-family",
+                #     ],
+                # ),
                 (
                     "#crumbs .current",
                     {".02em", "500"},

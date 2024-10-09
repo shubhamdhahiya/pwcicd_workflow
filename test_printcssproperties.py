@@ -14,7 +14,7 @@ import time
 
 
 class Testone(BaseClass):
-    
+
     def test_cssslector(self):
         log = self.getLogger()
         self.driver.get("https://www.physiciansweekly.com/")
@@ -32,14 +32,21 @@ class Testone(BaseClass):
 
         elements = self.driver.find_elements(
             By.CSS_SELECTOR,
-            "#newsSection .et_pb_with_border",
+            ".wp-pagenavi a",
         )
 
         fetched_css_properties = []
 
         for element in elements:
 
-            d = ["margin-right", "padding-right", "border"]
+            d = [
+                "margin",
+                "font-size",
+                "display",
+                "font-weight",
+                "color",
+                "border",
+            ]
             for i in d:
                 fetched_css_properties.append(element.value_of_css_property(i))
 

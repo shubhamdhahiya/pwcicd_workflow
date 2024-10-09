@@ -5,11 +5,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 import inspect
 import logging
 import requests
 import asyncio
 import aiohttp
+import time
 
 
 class SeleniumHelper:
@@ -58,9 +62,47 @@ class SeleniumHelper:
     #     return fetched_css_properties_set == expected_css_properties or len(
     #         fetched_css_properties_set
     #     ) == len(css_properties_list)
+    # def fetch_and_check_css_properties(
+    #     self, css_selector, expected_css_properties, css_properties_list
+    # ):
+    #     time.sleep(5)
+    #     script = """
+    #     var elements = document.querySelectorAll(arguments[0]);
+    #     var properties = arguments[1];
+    #     var results = [];
+    #     elements.forEach(function(element) {
+    #         var elementResult = {};
+    #         properties.forEach(function(property) {
+    #             elementResult[property] = window.getComputedStyle(element).getPropertyValue(property);
+    #         });
+    #         results.push(elementResult);
+    #     });
+    #     return results;
+    #     """
+    #     # Execute script and fetch results
+    #     results = self.driver.execute_script(script, css_selector, css_properties_list)
+
+    #     # Compare results
+    #     for element_properties in results:
+    #         for prop, value in element_properties.items():
+    #             if value not in expected_css_properties:
+    #                 return False
+    #     return True
     def fetch_and_check_css_properties(
-        self, css_selector, expected_css_properties, css_properties_list
+        self, css_selector, expected_css_properties, css_properties_list, timeout=10
     ):
+        try:
+            # Wait for the elements to be present on the page
+            WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
+            )
+        except TimeoutException:
+            print(
+                f"Elements with selector '{css_selector}' not found within {timeout} seconds."
+            )
+            return False
+
+        # JavaScript code to fetch the CSS properties for the elements
         script = """
         var elements = document.querySelectorAll(arguments[0]);
         var properties = arguments[1];
@@ -74,13 +116,23 @@ class SeleniumHelper:
         });
         return results;
         """
-        # Execute script and fetch results
+
+        # Execute the script and fetch results
         results = self.driver.execute_script(script, css_selector, css_properties_list)
 
-        # Compare results
+        # Compare the fetched CSS properties with expected ones
         for element_properties in results:
             for prop, value in element_properties.items():
-                if value not in expected_css_properties:
+                # Ensure the property is present in the expected properties dictionary
+                if prop in expected_css_properties:
+                    # Check if the value matches the expected value for the property
+                    if value.strip() != expected_css_properties[prop].strip():
+                        print(
+                            f"Mismatch found for property '{prop}': expected '{expected_css_properties[prop]}', got '{value}'"
+                        )
+                        return False
+                else:
+                    print(f"Property '{prop}' not found in expected properties.")
                     return False
         return True
 
