@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = webdriver.Chrome()
-driver.get("https://www.physiciansweekly.com/specialties/")
+driver.get("https://www.physiciansweekly.com/")
 driver.maximize_window()
 window_size = driver.get_window_size()
 
@@ -18,7 +18,7 @@ except Exception:
 
 elements = driver.find_elements(
     By.CSS_SELECTOR,
-    "#et-boc .breadcrumb #crumbs",
+    "body.home .custom-slider .slide p",
 )
 
 
@@ -27,12 +27,13 @@ fetched_css_properties = []
 for element in elements:
 
     d = [
-        "text-transform",
-        "line-height",
-        "font-size",
+        "margin-top",
         "color",
+        "text-align",
+        "letter-spacing",
+        "line-height",
         "font-weight",
-        "font-style",
+        "font-size",
         "font-family",
     ]
     for i in d:

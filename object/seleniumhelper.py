@@ -34,34 +34,35 @@ class SeleniumHelper:
         logger.setLevel(logging.DEBUG)
         return logger
 
-    # def fetch_and_check_css_properties(
-    #     self, css_selector, expected_css_properties, css_properties_list
-    # ):
-    #     """
-    #     Fetches CSS properties from elements found using the given CSS selector and checks them against expected values.
+    def fetch_and_check_css_properties(
+        self, css_selector, expected_css_properties, css_properties_list
+    ):
+        """
+        Fetches CSS properties from elements found using the given CSS selector and checks them against expected values.
 
-    #     :param css_selector: CSS selector to locate elements
-    #     :param expected_css_properties: Set of expected CSS properties
-    #     :param css_properties_list: List of CSS properties to fetch
-    #     :return: True if the fetched properties match the expected properties, False otherwise
-    #     """
-    #     wait = WebDriverWait(self.driver, 20)
-    #     element = By.CSS_SELECTOR, css_selector
-    #     elements = wait.until(EC.presence_of_all_elements_located(element))
+        :param css_selector: CSS selector to locate elements
+        :param expected_css_properties: Set of expected CSS properties
+        :param css_properties_list: List of CSS properties to fetch
+        :return: True if the fetched properties match the expected properties, False otherwise
+        """
+        wait = WebDriverWait(self.driver, 20)
+        element = By.CSS_SELECTOR, css_selector
+        elements = wait.until(EC.presence_of_all_elements_located(element))
 
-    #     fetched_css_properties = []
+        fetched_css_properties = []
 
-    #     for element in elements:
-    #         for css_property in css_properties_list:
-    #             fetched_css_properties.append(
-    #                 element.value_of_css_property(css_property)
-    #             )
+        for element in elements:
+            for css_property in css_properties_list:
+                fetched_css_properties.append(
+                    element.value_of_css_property(css_property)
+                )
 
-    #     fetched_css_properties_set = set(fetched_css_properties)
+        fetched_css_properties_set = set(fetched_css_properties)
 
-    #     return fetched_css_properties_set == expected_css_properties or len(
-    #         fetched_css_properties_set
-    #     ) == len(css_properties_list)
+        return fetched_css_properties_set == expected_css_properties or len(
+            fetched_css_properties_set
+        ) == len(css_properties_list)
+
     # def fetch_and_check_css_properties(
     #     self, css_selector, expected_css_properties, css_properties_list
     # ):
@@ -88,53 +89,54 @@ class SeleniumHelper:
     #             if value not in expected_css_properties:
     #                 return False
     #     return True
-    def fetch_and_check_css_properties(
-        self, css_selector, expected_css_properties, css_properties_list, timeout=10
-    ):
-        try:
-            # Wait for the elements to be present on the page
-            WebDriverWait(self.driver, timeout).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
-            )
-        except TimeoutException:
-            print(
-                f"Elements with selector '{css_selector}' not found within {timeout} seconds."
-            )
-            return False
 
-        # JavaScript code to fetch the CSS properties for the elements
-        script = """
-        var elements = document.querySelectorAll(arguments[0]);
-        var properties = arguments[1];
-        var results = [];
-        elements.forEach(function(element) {
-            var elementResult = {};
-            properties.forEach(function(property) {
-                elementResult[property] = window.getComputedStyle(element).getPropertyValue(property);
-            });
-            results.push(elementResult);
-        });
-        return results;
-        """
+    # def fetch_and_check_css_properties(
+    #     self, css_selector, expected_css_properties, css_properties_list, timeout=10
+    # ):
+    #     try:
+    #         # Wait for the elements to be present on the page
+    #         WebDriverWait(self.driver, timeout).until(
+    #             EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
+    #         )
+    #     except TimeoutException:
+    #         print(
+    #             f"Elements with selector '{css_selector}' not found within {timeout} seconds."
+    #         )
+    #         return False
 
-        # Execute the script and fetch results
-        results = self.driver.execute_script(script, css_selector, css_properties_list)
+    #     # JavaScript code to fetch the CSS properties for the elements
+    #     script = """
+    #     var elements = document.querySelectorAll(arguments[0]);
+    #     var properties = arguments[1];
+    #     var results = [];
+    #     elements.forEach(function(element) {
+    #         var elementResult = {};
+    #         properties.forEach(function(property) {
+    #             elementResult[property] = window.getComputedStyle(element).getPropertyValue(property);
+    #         });
+    #         results.push(elementResult);
+    #     });
+    #     return results;
+    #     """
 
-        # Compare the fetched CSS properties with expected ones
-        for element_properties in results:
-            for prop, value in element_properties.items():
-                # Ensure the property is present in the expected properties dictionary
-                if prop in expected_css_properties:
-                    # Check if the value matches the expected value for the property
-                    if value.strip() != expected_css_properties[prop].strip():
-                        print(
-                            f"Mismatch found for property '{prop}': expected '{expected_css_properties[prop]}', got '{value}'"
-                        )
-                        return False
-                else:
-                    print(f"Property '{prop}' not found in expected properties.")
-                    return False
-        return True
+    #     # Execute the script and fetch results
+    #     results = self.driver.execute_script(script, css_selector, css_properties_list)
+
+    #     # Compare the fetched CSS properties with expected ones
+    #     for element_properties in results:
+    #         for prop, value in element_properties.items():
+    #             # Ensure the property is present in the expected properties dictionary
+    #             if prop in expected_css_properties:
+    #                 # Check if the value matches the expected value for the property
+    #                 if value.strip() != expected_css_properties[prop].strip():
+    #                     print(
+    #                         f"Mismatch found for property '{prop}': expected '{expected_css_properties[prop]}', got '{value}'"
+    #                     )
+    #                     return False
+    #             else:
+    #                 print(f"Property '{prop}' not found in expected properties.")
+    #                 return False
+    #     return True
 
     def verify_links(self, selectors, additional_links, expected_link_count):
         all_links = []

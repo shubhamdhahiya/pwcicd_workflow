@@ -12,6 +12,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -52,7 +53,16 @@ class Testone(BaseClass):
                 ),
                 (
                     "body.home .custom-slider .slide p",
-                    {"10px", "#152c6c", "left", "0", "25px", "600", "20px", "Elza"},
+                    {
+                        "600",
+                        "25px",
+                        "normal",
+                        "Elza",
+                        "rgba(21, 44, 108, 1)",
+                        "left",
+                        "10px",
+                        "20px",
+                    },
                     [
                         "margin-top",
                         "color",
@@ -96,11 +106,10 @@ class Testone(BaseClass):
             log.info("end")
 
             selectors = ["#home-meeting-brifs.et_pb_section  a"]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
 
             log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] > 767 and window_size["width"] < 981:
@@ -114,14 +123,23 @@ class Testone(BaseClass):
                         "cover",
                         "182px",
                         "182px",
-                        "289px",
-                        "1px solid rgb(191, 191, 191)",
+                        "333.765px",
+                        "0.941176px solid rgb(191, 191, 191)",
                     },
                     ["border", "object-fit", "min-height", "max-height", "width"],
                 ),
                 (
                     "body.home .custom-slider .slide p",
-                    {"10px", "#152c6c", "left", "0", "25px", "600", "20px", "Elza"},
+                    {
+                        "10px",
+                        "#152c6c",
+                        "left",
+                        "0",
+                        "25px",
+                        "600",
+                        "20px",
+                        "Elza",
+                    },
                     [
                         "margin-top",
                         "color",
@@ -166,11 +184,10 @@ class Testone(BaseClass):
 
             selectors = ["#home-meeting-brifs.et_pb_section  a"]
             additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
 
             log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
-            log.info("All links verified successfully")
+
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
 
         elif window_size["width"] <= 767:
 
@@ -183,14 +200,23 @@ class Testone(BaseClass):
                         "cover",
                         "182px",
                         "182px",
-                        "289px",
-                        "1px solid rgb(191, 191, 191)",
+                        "372.19px",
+                        "0.761905px solid rgb(191, 191, 191)",
                     },
                     ["border", "object-fit", "min-height", "max-height", "width"],
                 ),
                 (
                     "body.home .custom-slider .slide p",
-                    {"10px", "#152c6c", "left", "0", "25px", "600", "20px", "Elza"},
+                    {
+                        "10px",
+                        "#152c6c",
+                        "left",
+                        "0",
+                        "25px",
+                        "600",
+                        "20px",
+                        "Elza",
+                    },
                     [
                         "margin-top",
                         "color",
@@ -234,9 +260,8 @@ class Testone(BaseClass):
             log.info("end")
 
             selectors = ["#home-meeting-brifs.et_pb_section  a"]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
 
             log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")

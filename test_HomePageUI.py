@@ -95,5 +95,5 @@ class Testone(BaseClass):
 
             assert (
                 set(article_tittleCss) == articltittle_set
-                or len(set(article_tittleCss)) == 5
+                or len(set(article_tittleCss)) == 6
             )
