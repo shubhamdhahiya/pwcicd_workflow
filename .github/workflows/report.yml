@@ -1,46 +1,45 @@
-on:
-  workflow_run:
-    workflows: ["Build and Run Docker Container"]
-    types:
-      - completed
+# on:
+#   workflow_run:
+#     workflows: ["Build and Run Docker Container"]
+#     types:
+#       - completed
 
+# jobs:
+#   fetch-browserstack-reports:
+#     runs-on: ubuntu-latest
+#     services:
+#       fetch_browserstack_reports:
+#         image: curlimages/curl:latest
+#         ports:
+#           - 80:80
+#     steps:
+#       - name: "Fetch Builds from BrowserStack"
+#         run: |
+#           curl -s -u "ankitsharma_5qd1B8:ygXnpF6wGGoX8TZUqqDt" "https://api.browserstack.com/automate/builds.json?limit=1" > builds_response.json
 
-jobs:
-  fetch-browserstack-reports:
-    runs-on: ubuntu-latest
-    services:
-      fetch_browserstack_reports:
-        image: curlimages/curl:latest
-        ports:
-          - 80:80
-    steps:
-      - name: "Fetch Builds from BrowserStack"
-        run: |
-          curl -s -u "ankitsharma_5qd1B8:ygXnpF6wGGoX8TZUqqDt" "https://api.browserstack.com/automate/builds.json?limit=1" > builds_response.json
+#       - name: "Process Builds"
+#         run: |
+#           builds_response=$(cat builds_response.json)
+#           latest_session=$(echo $builds_response | jq -r '.[0].automation_build.hashed_id')
+#           curl -s -u "ankitsharma_5qd1B8:ygXnpF6wGGoX8TZUqqDt" "https://automate.browserstack.com/api/v1/builds/$latest_session/selenium_build_reports" > report.pdf
 
-      - name: "Process Builds"
-        run: |
-          builds_response=$(cat builds_response.json)
-          latest_session=$(echo $builds_response | jq -r '.[0].automation_build.hashed_id')
-          curl -s -u "ankitsharma_5qd1B8:ygXnpF6wGGoX8TZUqqDt" "https://automate.browserstack.com/api/v1/builds/$latest_session/selenium_build_reports" > report.pdf
+#       - name: Send email with build result
+#         uses: dawidd6/action-send-mail@v3
+#         with:
+#           server_address: ${{ secrets.EMAIL_HOST }}
+#           server_port: ${{ secrets.EMAIL_PORT }}
+#           username: ${{ secrets.EMAIL_USERNAME }}
+#           password: ${{ secrets.EMAIL_PASSWORD }}
+#           subject: "PW Smoke Testing – Automation Report"
+#           body: |
+#             Dear Team,
 
-      - name: Send email with build result
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: ${{ secrets.EMAIL_HOST }}
-          server_port: ${{ secrets.EMAIL_PORT }}
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "PW Smoke Testing – Automation Report"
-          body: |
-            Dear Team,
+#             Please find the attached smoke test report for PW Automation.
 
-            Please find the attached smoke test report for PW Automation.
+#             Regards,
+#             PM Team
 
-            Regards,
-            PM Team
-          
-          to: ${{ secrets.EMAIL_TO }}
-          cc: ${{ secrets.EMAIL_CC }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          attachments: report.pdf
+#           to: ${{ secrets.EMAIL_TO }}
+#           cc: ${{ secrets.EMAIL_CC }}
+#           from: ${{ secrets.EMAIL_USERNAME }}
+#           attachments: report.pdf

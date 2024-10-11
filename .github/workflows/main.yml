@@ -1,23 +1,23 @@
-name: Build and Run Docker Container
+# name: Build and Run Docker Container
 
-on:
-  schedule:
-    - cron: '42 5 * * 1-5' 
+# on:
+#   schedule:
+#     - cron: '42 5 * * 1-5'
 
-jobs:
-  build-and-run:
-    runs-on: ubuntu-latest
+# jobs:
+#   build-and-run:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Build Docker image
-        run: docker build -t pw_image .
+#       - name: Build Docker image
+#         run: docker build -t pw_image .
 
-      - name: Run Docker container
-        run: docker run pw_image
+#       - name: Run Docker container
+#         run: docker run pw_image
 
-      - name: Set build status output
-        id: set-output
-        run: echo "::set-output name=build_status::success"
+#       - name: Set build status output
+#         id: set-output
+#         run: echo "::set-output name=build_status::success"
