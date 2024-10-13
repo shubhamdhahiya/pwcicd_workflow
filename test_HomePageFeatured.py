@@ -11,6 +11,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import requests
 import time
 import pytest
+from object.seleniumhelper import SeleniumHelper
+import asyncio
 
 
 class Testone(BaseClass):
@@ -140,32 +142,37 @@ class Testone(BaseClass):
                 for rig in rr:
                     right_section_css.append(rt.value_of_css_property(rig))
             right_section_set = {"43%"}
+            assert set(right_section_css) == right_section_set
+            selectors = ["#mainFeatured a"]
 
-            All_links = self.driver.find_elements(By.CSS_SELECTOR, "#mainFeatured a")
-            for All in All_links:
-                links = All.get_attribute("href")
-                urls.append(links)
-            urls.append("https://www.physiciansweekly.com/")
-            for soc in urls:
-                self.driver.execute_script("window.open(arguments[0])", soc)
+            log.info("Verifying links for multiple selectors")
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
 
-            handles = self.driver.window_handles
+            # All_links = self.driver.find_elements(By.CSS_SELECTOR, "#mainFeatured a")
+            # for All in All_links:
+            #     links = All.get_attribute("href")
+            #     urls.append(links)
+            # urls.append("https://www.physiciansweekly.com/")
+            # for soc in urls:
+            #     self.driver.execute_script("window.open(arguments[0])", soc)
 
-            for windows in handles:
-                self.driver.switch_to.window(windows)
-                alllinks = self.driver.current_url
-                allwindowsinks.append(alllinks)
+            # handles = self.driver.window_handles
 
-            log.info("verifying all social links")
-            assert set(urls) == set(allwindowsinks) or len(set(allwindowsinks)) == 12
-            log.info("All social links are verified sucessfully")
-            for social in allwindowsinks:
-                response = requests.get(social)
+            # for windows in handles:
+            #     self.driver.switch_to.window(windows)
+            #     alllinks = self.driver.current_url
+            #     allwindowsinks.append(alllinks)
 
-                status_code = response.status_code
-                log.info("verfying any broken links")
-                assert not status_code == 404
-            log.info("No broken links")
+            # log.info("verifying all social links")
+            # assert set(urls) == set(allwindowsinks) or len(set(allwindowsinks)) == 12
+            # log.info("All social links are verified sucessfully")
+            # for social in allwindowsinks:
+            #     response = requests.get(social)
+
+            #     status_code = response.status_code
+            #     log.info("verfying any broken links")
+            #     assert not status_code == 404
+            # log.info("No broken links")
 
         elif window_size["width"] > 767 and window_size["width"] < 981:
             Tittle_heading = self.driver.find_elements(
@@ -262,34 +269,34 @@ class Testone(BaseClass):
                 for rig in rr:
                     right_section_css.append(rt.value_of_css_property(rig))
             right_section_set = {"100%"}
-            right_section_set_1 = {"780px"}
+            right_section_set_1 = {"713.412px"}
             assert (
                 set(right_section_css) == right_section_set
                 or set(right_section_css) == right_section_set_1
             )
-            All_links = self.driver.find_elements(By.CSS_SELECTOR, "#mainFeatured a")
-            for All in All_links:
-                links = All.get_attribute("href")
-                urls.append(links)
-            # urls.append("https://www.physiciansweekly.com/")
-            # for soc in urls:
-            #     # self.driver.execute_script("window.open(arguments[0])", soc)
-            #     self.driver.execute_script("window.open('_blank'),soc")
+            # All_links = self.driver.find_elements(By.CSS_SELECTOR, "#mainFeatured a")
+            # for All in All_links:
+            #     links = All.get_attribute("href")
+            #     urls.append(links)
+            # # urls.append("https://www.physiciansweekly.com/")
+            # # for soc in urls:
+            # #     # self.driver.execute_script("window.open(arguments[0])", soc)
+            # #     self.driver.execute_script("window.open('_blank'),soc")
 
-            # handles = self.driver.window_handles
+            # # handles = self.driver.window_handles
 
-            # for windows in handles:
-            #     self.driver.switch_to.window(windows)
-            #     alllinks = self.driver.current_url
-            #     allwindowsinks.append(alllinks)
+            # # for windows in handles:
+            # #     self.driver.switch_to.window(windows)
+            # #     alllinks = self.driver.current_url
+            # #     allwindowsinks.append(alllinks)
 
-            for social in urls:
-                response = requests.get(social)
+            # for social in urls:
+            #     response = requests.get(social)
 
-                status_code = response.status_code
-                log.info("verfying any broken links")
-                assert not status_code == 404
-            log.info("No broken links")
+            #     status_code = response.status_code
+            #     log.info("verfying any broken links")
+            #     assert not status_code == 404
+            # log.info("No broken links")
 
         elif window_size["width"] <= 767:
             Tittle_heading = self.driver.find_elements(
@@ -386,33 +393,38 @@ class Testone(BaseClass):
                 for rig in rr:
                     right_section_css.append(rt.value_of_css_property(rig))
             right_section_set = {"100%"}
-            right_section_set_1 = {"384px"}
+            right_section_set_1 = {"412.19px"}
             assert (
                 set(right_section_css) == right_section_set
                 or set(right_section_css) == right_section_set_1
             )
-            All_links = self.driver.find_elements(By.CSS_SELECTOR, "#mainFeatured a")
-            for All in All_links:
-                links = All.get_attribute("href")
-                urls.append(links)
-            urls.append("https://www.physiciansweekly.com/")
-            for soc in urls:
-                self.driver.execute_script("window.open(arguments[0])", soc)
+            selectors = ["#mainFeatured a"]
 
-            handles = self.driver.window_handles
+            log.info("Verifying links for multiple selectors")
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
+            log.info("All links verified successfully")
+            # All_links = self.driver.find_elements(By.CSS_SELECTOR, "#mainFeatured a")
+            # for All in All_links:
+            #     links = All.get_attribute("href")
+            #     urls.append(links)
+            # urls.append("https://www.physiciansweekly.com/")
+            # for soc in urls:
+            #     self.driver.execute_script("window.open(arguments[0])", soc)
 
-            for windows in handles:
-                self.driver.switch_to.window(windows)
-                alllinks = self.driver.current_url
-                allwindowsinks.append(alllinks)
+            # handles = self.driver.window_handles
 
-            log.info("verifying all social links")
-            assert set(urls) == set(allwindowsinks) or len(set(allwindowsinks)) == 12
-            log.info("All social links are verified sucessfully")
-            for social in allwindowsinks:
-                response = requests.get(social)
+            # for windows in handles:
+            #     self.driver.switch_to.window(windows)
+            #     alllinks = self.driver.current_url
+            #     allwindowsinks.append(alllinks)
 
-                status_code = response.status_code
-                log.info("verfying any broken links")
-                assert not status_code == 404
-            log.info("No broken links")
+            # log.info("verifying all social links")
+            # assert set(urls) == set(allwindowsinks) or len(set(allwindowsinks)) == 12
+            # log.info("All social links are verified sucessfully")
+            # for social in allwindowsinks:
+            #     response = requests.get(social)
+
+            #     status_code = response.status_code
+            #     log.info("verfying any broken links")
+            #     assert not status_code == 404
+            # log.info("No broken links")

@@ -13,6 +13,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 # this file is pending for changes as speciality UI
@@ -51,7 +52,7 @@ class Testone(BaseClass):
                 href = specialty.get_attribute("href")
                 All_specialities_urls.append(href)
             for urls in All_specialities_urls:
-                self.driver.execute_script("window.open(arguments[0])", urls)
+                self.driver.execute_script(f"window.open('{urls}', '_blank');")
             wait.until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
@@ -249,8 +250,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
@@ -258,7 +263,7 @@ class Testone(BaseClass):
                     log.info("end")
                 except Exception:
                     ()
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
             try:
@@ -282,7 +287,7 @@ class Testone(BaseClass):
                 href = specialty.get_attribute("href")
                 All_specialities_urls.append(href)
             for urls in All_specialities_urls:
-                self.driver.execute_script("window.open(arguments[0])", urls)
+                self.driver.execute_script(f"window.open('{urls}', '_blank');")
             wait.until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
@@ -478,8 +483,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                         assert (
                             result
@@ -489,7 +498,7 @@ class Testone(BaseClass):
                 except Exception:
                     ()
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             log.info("start")
             log.info("start")
@@ -514,7 +523,7 @@ class Testone(BaseClass):
                 href = specialty.get_attribute("href")
                 All_specialities_urls.append(href)
             for urls in All_specialities_urls:
-                self.driver.execute_script("window.open(arguments[0])", urls)
+                self.driver.execute_script(f"window.open('{urls}', '_blank');")
             wait.until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
@@ -710,8 +719,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                         assert (
                             result

@@ -13,12 +13,13 @@ import requests
 import time
 import platform
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
     @pytest.mark.run(order=33)
     @pytest.mark.dependency(depends=["test_Meetingsbrieffunct"])
-    def test_Meetingsbriefprograme(self):
+    def test_PeertopeerProgramme(self):
         wait = WebDriverWait(self.driver, 20)
         name = self.driver.name
 
@@ -60,7 +61,11 @@ class Testone(BaseClass):
             )
             readmorebutton = wait.until(EC.presence_of_all_elements_located(readmore))
             for button in readmorebutton:
-                Ac.key_down(key_to_hold).click(button).key_up(key_to_hold).perform()
+                links = button.get_attribute("href")
+                opened_links.append(links)
+            for links in opened_links:
+                self.driver.execute_script(f"window.open('{links}', '_blank');")
+            time.sleep(10)
 
             handles = self.driver.window_handles
             log.info("start")
@@ -257,8 +262,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
@@ -294,7 +303,11 @@ class Testone(BaseClass):
             )
             readmorebutton = wait.until(EC.presence_of_all_elements_located(readmore))
             for button in readmorebutton:
-                Ac.key_down(key_to_hold).click(button).key_up(key_to_hold).perform()
+                links = button.get_attribute("href")
+                opened_links.append(links)
+            for links in opened_links:
+                self.driver.execute_script(f"window.open('{links}', '_blank');")
+            time.sleep(10)
 
             handles = self.driver.window_handles
             log.info("start")
@@ -491,8 +504,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
@@ -523,7 +540,11 @@ class Testone(BaseClass):
             readmore = (By.CSS_SELECTOR, "p a.more-link")
             readmorebutton = wait.until(EC.presence_of_all_elements_located(readmore))
             for button in readmorebutton:
-                Ac.key_down(key_to_hold).click(button).key_up(key_to_hold).perform()
+                links = button.get_attribute("href")
+                opened_links.append(links)
+            for links in opened_links:
+                self.driver.execute_script(f"window.open('{links}', '_blank');")
+            time.sleep(10)
 
             handles = self.driver.window_handles
             log.info("start")
@@ -720,8 +741,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result

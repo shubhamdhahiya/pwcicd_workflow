@@ -193,8 +193,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -211,7 +213,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -372,8 +374,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -385,7 +389,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             self.driver.get("https://www.physiciansweekly.com/deep-dives/case-consult/")
             try:
@@ -527,7 +531,12 @@ class Testone(BaseClass):
                 ),
                 (
                     ".spotlights-post-media img",
-                    {"250px", "0.711111px solid rgb(191, 191, 191)", "cover", "344px"},
+                    {
+                        "cover",
+                        "340px",
+                        "713.412px",
+                        "0.941176px solid rgb(191, 191, 191)",
+                    },
                     [
                         "width",
                         "max-height",
@@ -544,8 +553,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result

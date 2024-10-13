@@ -49,27 +49,27 @@ class Testone(BaseClass):
             log.info("start")
 
             selectors_and_properties = [
-                # (
-                #     "#et-boc .breadcrumb #crumbs",
-                #     {
-                #         "elza, sans-serif",
-                #         "rgba(55, 55, 55, 1)",
-                #         "20px",
-                #         "normal",
-                #         "24px",
-                #         "uppercase",
-                #         "700",
-                #     },
-                #     [
-                #         "text-transform",
-                #         "line-height",
-                #         "font-size",
-                #         "color",
-                #         "font-weight",
-                #         "font-style",
-                #         "font-family",
-                #     ],
-                # ),
+                (
+                    "#et-boc .breadcrumb #crumbs",
+                    {
+                        "elza, sans-serif",
+                        "rgba(55, 55, 55, 1)",
+                        "20px",
+                        "normal",
+                        "24px",
+                        "uppercase",
+                        "700",
+                    },
+                    [
+                        "text-transform",
+                        "line-height",
+                        "font-size",
+                        "color",
+                        "font-weight",
+                        "font-style",
+                        "font-family",
+                    ],
+                ),
                 (
                     "#crumbs .current",
                     {".02em", "500"},
@@ -183,8 +183,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -337,8 +339,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -489,8 +493,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result

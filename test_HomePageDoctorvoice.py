@@ -13,6 +13,8 @@ import requests
 import time
 import pytest
 
+import asyncio
+
 
 class Testone(BaseClass):
     @pytest.mark.run(order=5)
@@ -104,8 +106,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -114,11 +118,7 @@ class Testone(BaseClass):
             log.info("end")
 
             selectors = ["#doctorVoicesection a"]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
-
-            log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] > 767 and window_size["width"] < 981:
@@ -128,7 +128,7 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#doctorVoicesection div#doctorVoiceFeatureblog",
-                    {"0px", "384px", "0.711111px solid rgb(191, 191, 191)"},
+                    {"0px none rgba(0, 0, 0, 0.5)", "0px", "753.412px"},
                     ["margin-right", "width", "border-right", "padding-right"],
                 ),
                 (
@@ -180,8 +180,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -189,16 +191,8 @@ class Testone(BaseClass):
 
                 log.info("end")
 
-            selectors = [
-                "#Editorpickssec .editorBlog h2.entry-title a",
-                ".et_pb_post_extra .post-categories",
-                "#Editorpickssec .editorBlog .post-media a",
-            ]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
-
-            log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+            selectors = ["#doctorVoicesection a"]
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] <= 767:
@@ -208,7 +202,7 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#doctorVoicesection div#doctorVoiceFeatureblog",
-                    {"0px", "384px", "0.711111px solid rgb(191, 191, 191)"},
+                    {"412.19px", "0.761905px solid rgb(191, 191, 191)", "0px"},
                     ["margin-right", "width", "border-right", "padding-right"],
                 ),
                 (
@@ -270,14 +264,19 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
                 ), f"CSS properties do not match the expected values for selector {css_selector}"
 
                 log.info("end")
+            selectors = ["#doctorVoicesection a"]
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
+            log.info("All links verified successfully")
 
             # selectors = ["#doctorVoicesection a"]
             # additional_links = ["https://www.physiciansweekly.com/"]

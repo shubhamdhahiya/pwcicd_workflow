@@ -12,6 +12,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -200,14 +201,16 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
             ), f"CSS properties do not match the expected values for selector {css_selector}"
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -349,24 +352,28 @@ class Testone(BaseClass):
                 (
                     ".et_pb_section div[class*=et_pb_row_]",
                     {
-                        "40px 71.5px 0px",
-                        "57px 0px 0px",
-                        "7px 20px 43px",
-                        "40px 51.5px 0px",
-                        "0px 10px",
-                        "0px 71.5px",
-                        "55px 0px",
-                        "65px 71.5px 40px",
-                        "30px 20px 40px",
-                        "1230px",
                         "30px 0px 0px",
-                        "1280px",
-                        "0px 51.5px",
-                        "400",
-                        "65px auto 40px",
-                        "100%",
-                        "20px 71.5px 0px",
+                        "0px 0px -26px",
+                        "20px 20px 0px",
+                        "0px 20px",
+                        "40px 0px 0px",
+                        "4px",
                         "0px",
+                        "5px 4px 5px 0px",
+                        "713.412px",
+                        "65px 0px 40px",
+                        "753.412px",
+                        "400",
+                        "30px 20px 40px",
+                        "55px 0px",
+                        "0px 10px",
+                        "57px 0px 0px",
+                        "0px -4px 0px 0px",
+                        "65px auto 40px",
+                        "7px 20px 20px",
+                        "20px 0px 0px",
+                        "100%",
+                        "1280px",
                     },
                     [
                         "width",
@@ -383,14 +390,16 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
             ), f"CSS properties do not match the expected values for selector {css_selector}"
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             self.driver.get("https://www.physiciansweekly.com/podcast/")
             try:
@@ -530,24 +539,27 @@ class Testone(BaseClass):
                 (
                     ".et_pb_section div[class*=et_pb_row_]",
                     {
-                        "40px 71.5px 0px",
-                        "57px 0px 0px",
-                        "7px 20px 43px",
-                        "40px 51.5px 0px",
-                        "0px 10px",
-                        "0px 71.5px",
-                        "55px 0px",
-                        "65px 71.5px 40px",
-                        "30px 20px 40px",
-                        "1230px",
-                        "30px 0px 0px",
+                        "7px 20px 20px",
                         "1280px",
-                        "0px 51.5px",
-                        "400",
+                        "65px 0px 40px",
+                        "412.19px",
                         "65px auto 40px",
-                        "100%",
-                        "20px 71.5px 0px",
+                        "4px",
+                        "0px 20px",
+                        "30px 20px 40px",
+                        "372.19px",
+                        "0px -4px 0px 0px",
+                        "20px 0px 0px",
+                        "0px 10px",
+                        "20px 20px 0px",
+                        "57px 0px 0px",
                         "0px",
+                        "5px 4px 5px 0px",
+                        "30px 0px 0px",
+                        "100%",
+                        "20px 0px",
+                        "0px 0px -22px",
+                        "400",
                     },
                     [
                         "width",
@@ -564,8 +576,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result

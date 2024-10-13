@@ -12,6 +12,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -56,8 +57,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -70,8 +73,7 @@ class Testone(BaseClass):
                 ".lwp_post_carousel_image  a",
             ]
 
-            log.info("Verifying links for multiple selectors")
-            helper.verify_linkscloud(selectors)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] > 767 and window_size["width"] < 981:
@@ -96,8 +98,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -110,8 +114,7 @@ class Testone(BaseClass):
                 ".lwp_post_carousel_image  a",
             ]
 
-            log.info("Verifying links for multiple selectors")
-            helper.verify_linkscloud(selectors)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] <= 767:
@@ -136,14 +139,22 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
                 ), f"CSS properties do not match the expected values for selector {css_selector}"
 
                 log.info("end")
+            selectors = [
+                "#businessOfMedisection h4 a",
+                ".lwp_post_carousel_image  a",
+            ]
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
+            log.info("All links verified successfully")
 
             # selectors = [
             #     "#businessOfMedisection section.lwp-slick-slider .slick-track .slick-slide h4 a",

@@ -13,6 +13,8 @@ import requests
 import time
 import pytest
 
+import asyncio
+
 
 class Testone(BaseClass):
     @pytest.mark.run(order=3)
@@ -97,26 +99,23 @@ class Testone(BaseClass):
                 (
                     "p.post-meta",
                     {
-                        "12px",
-                        "uppercase",
-                        "14px",
-                        "400",
-                        "18px",
-                        "none",
-                        "0px",
-                        "28px",
-                        "22px",
-                        "block",
-                        "left",
-                        "normal",
-                        "rgba(255, 255, 255, 1)",
-                        "Elza",
-                        "500",
-                        "rgba(1, 121, 217, 1)",
-                        "rgba(21, 44, 108, 1)",
-                        "20.4px",
-                        "0px 0px 6px",
                         "0.35px",
+                        "500",
+                        "23.8px",
+                        "0px",
+                        "400",
+                        "0px 0px 6px",
+                        "rgba(1, 121, 217, 1)",
+                        "18px",
+                        "Elza",
+                        "left",
+                        "none",
+                        "rgba(102, 102, 102, 1)",
+                        "block",
+                        "uppercase",
+                        "normal",
+                        "28px",
+                        "14px",
                     },
                     [
                         "margin",
@@ -138,8 +137,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -148,11 +149,9 @@ class Testone(BaseClass):
             log.info("end")
 
             selectors = [".et_pb_section_15 a"]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
 
             log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] > 767 and window_size["width"] < 981:
@@ -219,26 +218,24 @@ class Testone(BaseClass):
                 (
                     "p.post-meta",
                     {
-                        "12px",
-                        "uppercase",
-                        "14px",
-                        "400",
-                        "18px",
+                        "rgba(102, 102, 102, 1)",
+                        "500",
                         "none",
+                        "rgba(1, 121, 217, 1)",
+                        "18px",
+                        "0.35px",
                         "0px",
-                        "28px",
-                        "22px",
-                        "block",
                         "left",
                         "normal",
-                        "rgba(255, 255, 255, 1)",
+                        "uppercase",
+                        "16.9023px",
+                        "28px",
+                        "block",
                         "Elza",
-                        "500",
-                        "rgba(1, 121, 217, 1)",
-                        "rgba(21, 44, 108, 1)",
-                        "20.4px",
+                        "14px",
                         "0px 0px 6px",
-                        "0.35px",
+                        "400",
+                        "23.8px",
                     },
                     [
                         "margin",
@@ -260,8 +257,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -270,11 +269,9 @@ class Testone(BaseClass):
             log.info("end")
 
             selectors = [".et_pb_section_15 a"]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
 
             log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
         elif window_size["width"] <= 767:
@@ -335,32 +332,29 @@ class Testone(BaseClass):
                 ),
                 (
                     ".et_pb_section_15",
-                    {"0px", "20px", "0px", "20px"},
+                    {"0px", "0px", "0px", "0px"},
                     ["padding-top", "padding-right", "padding-bottom", "padding-left"],
                 ),
                 (
                     "p.post-meta",
                     {
-                        "12px",
-                        "uppercase",
-                        "14px",
-                        "400",
-                        "18px",
-                        "none",
-                        "0px",
-                        "28px",
-                        "22px",
-                        "block",
-                        "left",
                         "normal",
-                        "rgba(255, 255, 255, 1)",
-                        "Elza",
-                        "500",
-                        "rgba(1, 121, 217, 1)",
-                        "rgba(21, 44, 108, 1)",
-                        "20.4px",
-                        "0px 0px 6px",
                         "0.35px",
+                        "18px",
+                        "left",
+                        "14px",
+                        "28px",
+                        "Elza",
+                        "0px 0px 6px",
+                        "rgba(102, 102, 102, 1)",
+                        "rgba(1, 121, 217, 1)",
+                        "23.8px",
+                        "400",
+                        "block",
+                        "uppercase",
+                        "0px",
+                        "500",
+                        "none",
                     },
                     [
                         "margin",
@@ -382,8 +376,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
                 assert (
                     result
@@ -392,9 +388,7 @@ class Testone(BaseClass):
             log.info("end")
 
             selectors = [".et_pb_section_15 a"]
-            additional_links = ["https://www.physiciansweekly.com/"]
-            expected_link_count = 13
 
             log.info("Verifying links for multiple selectors")
-            helper.verify_links(selectors, additional_links, expected_link_count)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")

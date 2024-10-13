@@ -13,6 +13,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 # this file is pending for changes as speciality UI
@@ -114,8 +115,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
@@ -203,8 +208,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
@@ -293,8 +302,12 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result

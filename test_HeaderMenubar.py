@@ -12,6 +12,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -89,8 +90,7 @@ class Testone(BaseClass):
                 "a.mega-menu-link",
             ]
 
-            log.info("Verifying links for multiple selectors")
-            helper.verify_linkscloud(selectors)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
             # menu_lilinks = By.CSS_SELECTOR, "a.mega-menu-link"

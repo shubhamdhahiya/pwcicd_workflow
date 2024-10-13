@@ -8,9 +8,12 @@ from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -83,33 +86,95 @@ class Testone(BaseClass):
                         Css_linksvalues.append(mecss.value_of_css_property(me))
             linkset = {"0.48px", "16px", "400", "elza", "rgba(255, 255, 255, 1)"}
             assert len(set(Css_linksvalues)) == 5 or set(Css_linksvalues) == linkset
-            footer_linksvalues.append("https://www.physiciansweekly.com/")
 
-            for soc in footer_linksvalues:
-                self.driver.execute_script("window.open(arguments[0])", soc)
+            selectors = [".ft-custom-menu a"]
 
-            handles = self.driver.window_handles
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
+            log.info("All links verified successfully")
+            # footer_linksvalues.append("https://www.physiciansweekly.com/")
 
-            for windows in handles:
-                self.driver.switch_to.window(windows)
-                alllinks = self.driver.current_url
-                all_windowslinks.append(alllinks)
+            # for soc in footer_linksvalues:
+            #     self.driver.execute_script("window.open(arguments[0])", soc)
 
-            log.info("verifying all social links")
-            assert (
-                set(footer_linksvalues) == set(all_windowslinks)
-                or len(footer_linksvalues) == 14
+            # handles = self.driver.window_handles
+
+            # for windows in handles:
+            #     self.driver.switch_to.window(windows)
+            #     alllinks = self.driver.current_url
+            #     all_windowslinks.append(alllinks)
+
+            # log.info("verifying all social links")
+            # assert (
+            #     set(footer_linksvalues) == set(all_windowslinks)
+            #     or len(footer_linksvalues) == 14
+            # )
+            # log.info("All social links are verified sucessfully")
+            # for social in all_windowslinks:
+            #     response = requests.get(social)
+
+            #     status_code = response.status_code
+            #     log.info("verfying any broken links")
+            #     assert not status_code == 404
+            #     log.info("No broken links")
+        elif window_size["width"] >= 753 and window_size["width"] < 981:
+            try:
+                popup = self.driver.find_element(
+                    By.CSS_SELECTOR, "#onesignal-popover-container"
+                )
+                popup.click()
+            except Exception:
+                ()
+            footer_links = self.driver.find_elements(
+                By.CSS_SELECTOR, ".ft-custom-menu a"
             )
-            log.info("All social links are verified sucessfully")
-            for social in all_windowslinks:
-                response = requests.get(social)
 
-                status_code = response.status_code
-                log.info("verfying any broken links")
-                assert not status_code == 404
-                log.info("No broken links")
+            for links in footer_links:
+                lnks = links.get_attribute("href")
+                footer_linksvalues.append(lnks)
 
-        elif window_size["width"] <= 767:
+            Footer_css = self.driver.find_element(
+                By.CSS_SELECTOR, "#ft-first-row.et_pb_row"
+            )
+            f = ["padding-top", "padding-right", "padding-bottom", "padding-left"]
+            for i in f:
+                Footer_cssvalues.append(Footer_css.value_of_css_property(i))
+            assert set(Footer_cssvalues) == {"20px", "30px", "40px"}
+
+            Tittle = By.CSS_SELECTOR, ".ft-sec-hdng"
+            footer_tittlecss = wait.until(EC.presence_of_all_elements_located(Tittle))
+            for css in footer_tittlecss:
+                if css != None:
+                    fsd = ["font-family", "font-weight", "color", "font-size"]
+                    for it in fsd:
+                        Css_values.append(css.value_of_css_property(it))
+
+            myset = {"elza", "700", "#dbbe46", "18px"}
+            assert len(set(Css_values)) == 4 or set(Css_values) == myset
+
+            sss = print(Css_values)
+            log.info(sss)
+            log.info("end")
+            footers_links = By.CSS_SELECTOR, ".ft-custom-menu a"
+            ftu_links = wait.until(EC.presence_of_all_elements_located(footers_links))
+            for mecss in ftu_links:
+                if mecss != None:
+                    mfd = [
+                        "font-size",
+                        "font-weight",
+                        "font-family",
+                        "color",
+                        "letter-spacing",
+                    ]
+                    for me in mfd:
+                        Css_linksvalues.append(mecss.value_of_css_property(me))
+            linkset = {"0.48px", "16px", "400", "elza", "rgba(255, 255, 255, 1)"}
+            assert len(set(Css_linksvalues)) == 5 or set(Css_linksvalues) == linkset
+            selectors = [".ft-custom-menu a"]
+
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
+            log.info("All links verified successfully")
+
+        elif window_size["width"] < 753:
 
             try:
                 popup = self.driver.find_element(
@@ -163,28 +228,31 @@ class Testone(BaseClass):
                         Css_linksvalues.append(mecss.value_of_css_property(me))
             linkset = {"0.48px", "16px", "400", "elza", "rgba(255, 255, 255, 1)"}
             assert len(set(Css_linksvalues)) == 5 or set(Css_linksvalues) == linkset
-            footer_linksvalues.append("https://www.physiciansweekly.com/")
+            selectors = [".ft-custom-menu a"]
 
-            for soc in footer_linksvalues:
-                self.driver.execute_script("window.open(arguments[0])", soc)
+            asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
+            log.info("All links verified successfully")
 
-            handles = self.driver.window_handles
+            # for soc in footer_linksvalues:
+            #     self.driver.execute_script("window.open(arguments[0])", soc)
 
-            for windows in handles:
-                self.driver.switch_to.window(windows)
-                alllinks = self.driver.current_url
-                all_windowslinks.append(alllinks)
+            # handles = self.driver.window_handles
 
-            log.info("verifying all social links")
-            assert (
-                set(footer_linksvalues) == set(all_windowslinks)
-                or len(footer_linksvalues) == 14
-            )
-            log.info("All social links are verified sucessfully")
-            for social in all_windowslinks:
-                response = requests.get(social)
+            # for windows in handles:
+            #     self.driver.switch_to.window(windows)
+            #     alllinks = self.driver.current_url
+            #     all_windowslinks.append(alllinks)
 
-                status_code = response.status_code
-                log.info("verfying any broken links")
-                assert not status_code == 404
-                log.info("No broken links")
+            # log.info("verifying all social links")
+            # assert (
+            #     set(footer_linksvalues) == set(all_windowslinks)
+            #     or len(footer_linksvalues) == 14
+            # )
+            # log.info("All social links are verified sucessfully")
+            # for social in all_windowslinks:
+            #     response = requests.get(social)
+
+            #     status_code = response.status_code
+            #     log.info("verfying any broken links")
+            #     assert not status_code == 404
+            #     log.info("No broken links")

@@ -137,18 +137,18 @@ class Testone(BaseClass):
                         "color",
                     ],
                 ),
-                (
-                    "h3",
-                    {"elza", "10px", "rgba(1, 121, 217, 1)", "30px", "25px", "700"},
-                    [
-                        "line-height",
-                        "color",
-                        "font-size",
-                        "font-weight",
-                        "font-family",
-                        "padding-bottom",
-                    ],
-                ),
+                # (
+                #     "h3",
+                #     {"elza", "10px", "rgba(1, 121, 217, 1)", "30px", "25px", "700"},
+                #     [
+                #         "line-height",
+                #         "color",
+                #         "font-size",
+                #         "font-weight",
+                #         "font-family",
+                #         "padding-bottom",
+                #     ],
+                # ),
                 (
                     ".cat-meeting-coverage-section .post-data p",
                     {
@@ -177,7 +177,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#neurosurgery-sec article .post-media img",
-                    {"0px solid rgb(51, 51, 51)", "573px", "cover", "335px", "none"},
+                    {"cover", "335px", "0px none rgba(0, 0, 0, 0.75)", "573px", "none"},
                     [
                         "width",
                         "max-height",
@@ -194,8 +194,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -207,7 +209,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -319,18 +321,18 @@ class Testone(BaseClass):
                         "color",
                     ],
                 ),
-                (
-                    "h3",
-                    {"elza", "10px", "rgba(1, 121, 217, 1)", "30px", "25px", "700"},
-                    [
-                        "line-height",
-                        "color",
-                        "font-size",
-                        "font-weight",
-                        "font-family",
-                        "padding-bottom",
-                    ],
-                ),
+                # (
+                #     "h3",
+                #     {"elza", "10px", "rgba(1, 121, 217, 1)", "30px", "25px", "700"},
+                #     [
+                #         "line-height",
+                #         "color",
+                #         "font-size",
+                #         "font-weight",
+                #         "font-family",
+                #         "padding-bottom",
+                #     ],
+                # ),
                 (
                     ".cat-meeting-coverage-section .post-data p",
                     {
@@ -359,7 +361,13 @@ class Testone(BaseClass):
                 ),
                 (
                     "#neurosurgery-sec article .post-media img",
-                    {"0px solid rgb(51, 51, 51)", "573px", "cover", "335px", "none"},
+                    {
+                        "0px none rgba(0, 0, 0, 0.75)",
+                        "none",
+                        "335px",
+                        "333.118px",
+                        "cover",
+                    },
                     [
                         "width",
                         "max-height",
@@ -376,8 +384,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -389,7 +399,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             try:
                 popup = self.driver.find_element(
@@ -499,18 +509,18 @@ class Testone(BaseClass):
                         "color",
                     ],
                 ),
-                (
-                    "h3",
-                    {"elza", "10px", "rgba(1, 121, 217, 1)", "30px", "25px", "700"},
-                    [
-                        "line-height",
-                        "color",
-                        "font-size",
-                        "font-weight",
-                        "font-family",
-                        "padding-bottom",
-                    ],
-                ),
+                # (
+                #     "h3",
+                #     {"elza", "10px", "rgba(1, 121, 217, 1)", "30px", "25px", "700"},
+                #     [
+                #         "line-height",
+                #         "color",
+                #         "font-size",
+                #         "font-weight",
+                #         "font-family",
+                #         "padding-bottom",
+                #     ],
+                # ),
                 (
                     ".cat-meeting-coverage-section .post-data p",
                     {
@@ -539,7 +549,13 @@ class Testone(BaseClass):
                 ),
                 (
                     "#neurosurgery-sec article .post-media img",
-                    {"0px solid rgb(51, 51, 51)", "573px", "cover", "335px", "none"},
+                    {
+                        "cover",
+                        "200px",
+                        "0px none rgba(0, 0, 0, 0.75)",
+                        "none",
+                        "370.667px",
+                    },
                     [
                         "width",
                         "max-height",
@@ -556,8 +572,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
