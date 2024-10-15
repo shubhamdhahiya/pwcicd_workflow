@@ -72,10 +72,10 @@ class Testone(BaseClass):
                 ),
                 (
                     "#crumbs .current",
-                    {".02em", "500"},
+                    {"0.4px", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "#specialties-columns nav.et-menu-nav .et-menu li",
                     {
@@ -111,38 +111,17 @@ class Testone(BaseClass):
                 (
                     "#menu-specialties-1 li a",
                     {
-                        "126.234px",
-                        "206.359px",
-                        "49.25px",
-                        "elza",
-                        "117.281px",
-                        "152.188px",
-                        "93.0312px",
-                        "rgba(21, 44, 108, 1)",
-                        "91.2812px",
-                        "168.234px",
-                        "150.875px",
-                        "169.734px",
-                        "122.125px",
                         "table-cell",
+                        "normal",
+                        "rgba(21, 44, 108, 1)",
+                        "elza",
                         "25px",
                         "38px",
-                        "143.109px",
-                        "252.578px",
-                        "normal",
-                        "213.359px",
-                        "97.0312px",
-                        "120.609px",
-                        "152.328px",
-                        "275.438px",
-                        "0px",
-                        "179.453px",
-                        "135.953px",
                         "600",
+                        "0px",
                     },
                     [
                         "padding",
-                        "width",
                         "display",
                         "line-height",
                         "font-style",
@@ -198,7 +177,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             self.driver.get("https://www.physiciansweekly.com/specialties/")
 
@@ -210,7 +189,7 @@ class Testone(BaseClass):
                     {
                         "elza, sans-serif",
                         "rgba(55, 55, 55, 1)",
-                        "20px",
+                        "14px",
                         "normal",
                         "24px",
                         "uppercase",
@@ -228,16 +207,16 @@ class Testone(BaseClass):
                 ),
                 (
                     "#crumbs .current",
-                    {".02em", "500"},
+                    {"0.28px", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "#specialties-columns nav.et-menu-nav .et-menu li",
                     {
-                        "404.688px",
+                        "349.647px",
                         "inline-block",
-                        "1px solid rgb(191, 191, 191)",
+                        "0.941176px solid rgb(191, 191, 191)",
                         "0px 0px 12px",
                     },
                     [
@@ -253,8 +232,8 @@ class Testone(BaseClass):
                     {
                         "inline-block",
                         "0px 0px 12px",
-                        "404.688px",
-                        "1px solid rgb(191, 191, 191)",
+                        "349.647px",
+                        "0.941176px solid rgb(191, 191, 191)",
                     },
                     [
                         "display",
@@ -267,38 +246,17 @@ class Testone(BaseClass):
                 (
                     "#menu-specialties-1 li a",
                     {
-                        "126.234px",
-                        "206.359px",
-                        "49.25px",
-                        "elza",
-                        "117.281px",
-                        "152.188px",
-                        "93.0312px",
-                        "rgba(21, 44, 108, 1)",
-                        "91.2812px",
-                        "168.234px",
-                        "150.875px",
-                        "169.734px",
-                        "122.125px",
-                        "table-cell",
-                        "25px",
-                        "38px",
-                        "143.109px",
-                        "252.578px",
-                        "normal",
-                        "213.359px",
-                        "97.0312px",
-                        "120.609px",
-                        "152.328px",
-                        "275.438px",
                         "0px",
-                        "179.453px",
-                        "135.953px",
+                        "table-cell",
+                        "elza",
+                        "rgba(21, 44, 108, 1)",
+                        "28px",
+                        "normal",
                         "600",
+                        "20px",
                     },
                     [
                         "padding",
-                        "width",
                         "display",
                         "line-height",
                         "font-style",
@@ -354,7 +312,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
             self.driver.get("https://www.physiciansweekly.com/specialties/")
             log.info("start")
 
@@ -364,11 +322,11 @@ class Testone(BaseClass):
                     {
                         "elza, sans-serif",
                         "rgba(55, 55, 55, 1)",
-                        "20px",
                         "normal",
                         "24px",
                         "uppercase",
                         "700",
+                        "14px",
                     },
                     [
                         "text-transform",
@@ -382,16 +340,16 @@ class Testone(BaseClass):
                 ),
                 (
                     "#crumbs .current",
-                    {".02em", "500"},
+                    {"0.28px", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "#specialties-columns nav.et-menu-nav .et-menu li",
                     {
-                        "404.688px",
+                        "372.19px",
                         "inline-block",
-                        "1px solid rgb(191, 191, 191)",
+                        "0.761905px solid rgb(191, 191, 191)",
                         "0px 0px 12px",
                     },
                     [
@@ -407,8 +365,8 @@ class Testone(BaseClass):
                     {
                         "inline-block",
                         "0px 0px 12px",
-                        "404.688px",
-                        "1px solid rgb(191, 191, 191)",
+                        "372.19px",
+                        "0.761905px solid rgb(191, 191, 191)",
                     },
                     [
                         "display",
@@ -421,38 +379,17 @@ class Testone(BaseClass):
                 (
                     "#menu-specialties-1 li a",
                     {
-                        "126.234px",
-                        "206.359px",
-                        "49.25px",
                         "elza",
-                        "117.281px",
-                        "152.188px",
-                        "93.0312px",
-                        "rgba(21, 44, 108, 1)",
-                        "91.2812px",
-                        "168.234px",
-                        "150.875px",
-                        "169.734px",
-                        "122.125px",
-                        "table-cell",
-                        "25px",
-                        "38px",
-                        "143.109px",
-                        "252.578px",
-                        "normal",
-                        "213.359px",
-                        "97.0312px",
-                        "120.609px",
-                        "152.328px",
-                        "275.438px",
-                        "0px",
-                        "179.453px",
-                        "135.953px",
                         "600",
+                        "0px",
+                        "28px",
+                        "20px",
+                        "normal",
+                        "rgba(21, 44, 108, 1)",
+                        "table-cell",
                     },
                     [
                         "padding",
-                        "width",
                         "display",
                         "line-height",
                         "font-style",
@@ -466,12 +403,12 @@ class Testone(BaseClass):
                     "h1.is_archive",
                     {
                         "700",
-                        "60px",
+                        "36px",
                         "rgba(21, 44, 108, 1)",
                         "normal",
                         "0.5px",
                         "elza",
-                        "0px 0px 20px",
+                        "0px 20px 6px",
                     },
                     [
                         "font-size",

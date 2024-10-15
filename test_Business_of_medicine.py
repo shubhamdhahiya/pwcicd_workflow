@@ -237,7 +237,7 @@ class Testone(BaseClass):
                 result
             ), f"CSS properties do not match the expected values for selector {css_selector}"
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -441,7 +441,7 @@ class Testone(BaseClass):
                 result
             ), f"CSS properties do not match the expected values for selector {css_selector}"
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             self.driver.get(
                 "https://www.physiciansweekly.com/category/business-of-medicine/"

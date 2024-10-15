@@ -85,13 +85,6 @@ class Testone(BaseClass):
 
                 except Exception:
                     self.driver.close()
-                for handle in self.driver.window_handles:
-                    if handle != main_window:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-
-                # Switch back to the main window
-                self.driver.switch_to.window(main_window)
 
             # work is pending for programme pages
 
@@ -119,13 +112,6 @@ class Testone(BaseClass):
 
                 except Exception:
                     self.driver.close()
-                for handle in self.driver.window_handles:
-                    if handle != main_window:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-
-                # Switch back to the main window
-                self.driver.switch_to.window(main_window)
 
         elif window_size["width"] <= 767:
 
@@ -149,10 +135,3 @@ class Testone(BaseClass):
 
                 except Exception:
                     self.driver.close()
-                for handle in self.driver.window_handles:
-                    if handle != main_window:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-
-                # Switch back to the main window
-                self.driver.switch_to.window(main_window)

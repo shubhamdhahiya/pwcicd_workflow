@@ -12,6 +12,7 @@ from object.seleniumhelper import SeleniumHelper
 import requests
 import time
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -82,7 +83,7 @@ class Testone(BaseClass):
                             {".02em", "500"},
                             ["letter-spacing", "font-weight"],
                         ),
-                        (".breadcrumb", {"10px 0"}, ["margin"]),
+                        (".breadcrumb", {"10px 0px"}, ["margin"]),
                         (
                             "span.published",
                             {
@@ -187,13 +188,18 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
                     ), f"CSS properties do not match the expected values for selector {css_selector}"
                     Ac.move_to_element(nextbutton).click().perform()
+                    self.driver.refresh()
                 else:
                     break
 
@@ -225,7 +231,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "span.published",
                     {
@@ -330,8 +336,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -388,7 +396,7 @@ class Testone(BaseClass):
                             {".02em", "500"},
                             ["letter-spacing", "font-weight"],
                         ),
-                        (".breadcrumb", {"10px 0"}, ["margin"]),
+                        (".breadcrumb", {"10px 0px"}, ["margin"]),
                         (
                             "span.published",
                             {
@@ -493,13 +501,18 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
                     ), f"CSS properties do not match the expected values for selector {css_selector}"
                     Ac.move_to_element(nextbutton).click().perform()
+                    self.driver.refresh()
                 else:
                     break
 
@@ -531,7 +544,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "span.published",
                     {
@@ -636,8 +649,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result
@@ -692,7 +707,7 @@ class Testone(BaseClass):
                             {".02em", "500"},
                             ["letter-spacing", "font-weight"],
                         ),
-                        (".breadcrumb", {"10px 0"}, ["margin"]),
+                        (".breadcrumb", {"10px 0px"}, ["margin"]),
                         (
                             "span.published",
                             {
@@ -797,13 +812,18 @@ class Testone(BaseClass):
                         expected_css_properties,
                         css_properties_list,
                     ) in selectors_and_properties:
-                        result = helper.fetch_and_check_css_properties(
-                            css_selector, expected_css_properties, css_properties_list
+                        result = asyncio.run(
+                            helper.fetch_and_check_css_properties(
+                                css_selector,
+                                expected_css_properties,
+                                css_properties_list,
+                            )
                         )
                     assert (
                         result
                     ), f"CSS properties do not match the expected values for selector {css_selector}"
                     Ac.move_to_element(nextbutton).click().perform()
+                    self.driver.refresh()
                 else:
                     break
 
@@ -940,8 +960,10 @@ class Testone(BaseClass):
                 expected_css_properties,
                 css_properties_list,
             ) in selectors_and_properties:
-                result = helper.fetch_and_check_css_properties(
-                    css_selector, expected_css_properties, css_properties_list
+                result = asyncio.run(
+                    helper.fetch_and_check_css_properties(
+                        css_selector, expected_css_properties, css_properties_list
+                    )
                 )
             assert (
                 result

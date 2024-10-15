@@ -64,7 +64,7 @@ class Testone(BaseClass):
             while True:
                 try:
                     next = By.XPATH, "//a[@class='next page-numbers']"
-                    nextbutton = wait.until(EC.presence_of_element_located(next))
+                    nextbutton = wait.until(EC.visibility_of_element_located(next))
                 except Exception:
                     break
                 if nextbutton:
@@ -134,7 +134,7 @@ class Testone(BaseClass):
             while True:
                 try:
                     next = By.XPATH, "//a[@class='next page-numbers']"
-                    nextbutton = wait.until(EC.presence_of_element_located(next))
+                    nextbutton = wait.until(EC.visibility_of_element_located(next))
                 except Exception:
                     break
                 if nextbutton:
@@ -204,7 +204,7 @@ class Testone(BaseClass):
             while True:
                 try:
                     next = By.XPATH, "//a[@class='next page-numbers']"
-                    nextbutton = wait.until(EC.presence_of_element_located(next))
+                    nextbutton = wait.until(EC.visibility_of_element_located(next))
                 except Exception:
                     break
                 if nextbutton:

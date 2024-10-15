@@ -14,6 +14,7 @@ import requests
 import time
 import platform
 import pytest
+import asyncio
 
 
 class Testone(BaseClass):
@@ -88,7 +89,8 @@ class Testone(BaseClass):
                                     "font-style",
                                     "font-family",
                                 ],
-                            )(
+                            ),
+                            (
                                 "#crumbs .current",
                                 {".02em", "500"},
                                 ["letter-spacing", "font-weight"],
@@ -255,10 +257,12 @@ class Testone(BaseClass):
                             expected_css_properties,
                             css_properties_list,
                         ) in selectors_and_properties:
-                            result = helper.fetch_and_check_css_properties(
-                                css_selector,
-                                expected_css_properties,
-                                css_properties_list,
+                            result = asyncio.run(
+                                helper.fetch_and_check_css_properties(
+                                    css_selector,
+                                    expected_css_properties,
+                                    css_properties_list,
+                                )
                             )
                         assert (
                             result
@@ -268,7 +272,7 @@ class Testone(BaseClass):
 
                 # work is pending for programme pages
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -313,7 +317,8 @@ class Testone(BaseClass):
                                     "font-style",
                                     "font-family",
                                 ],
-                            )(
+                            ),
+                            (
                                 "#crumbs .current",
                                 {".02em", "500"},
                                 ["letter-spacing", "font-weight"],
@@ -480,10 +485,12 @@ class Testone(BaseClass):
                             expected_css_properties,
                             css_properties_list,
                         ) in selectors_and_properties:
-                            result = helper.fetch_and_check_css_properties(
-                                css_selector,
-                                expected_css_properties,
-                                css_properties_list,
+                            result = asyncio.run(
+                                helper.fetch_and_check_css_properties(
+                                    css_selector,
+                                    expected_css_properties,
+                                    css_properties_list,
+                                )
                             )
                         assert (
                             result
@@ -491,7 +498,7 @@ class Testone(BaseClass):
                 except NoSuchElementException and TimeoutException:
                     ()
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             Ac = ActionChains(self.driver)
 
@@ -534,7 +541,8 @@ class Testone(BaseClass):
                                     "font-style",
                                     "font-family",
                                 ],
-                            )(
+                            ),
+                            (
                                 "#crumbs .current",
                                 {".02em", "500"},
                                 ["letter-spacing", "font-weight"],
@@ -701,10 +709,12 @@ class Testone(BaseClass):
                             expected_css_properties,
                             css_properties_list,
                         ) in selectors_and_properties:
-                            result = helper.fetch_and_check_css_properties(
-                                css_selector,
-                                expected_css_properties,
-                                css_properties_list,
+                            result = asyncio.run(
+                                helper.fetch_and_check_css_properties(
+                                    css_selector,
+                                    expected_css_properties,
+                                    css_properties_list,
+                                )
                             )
                         assert (
                             result
