@@ -76,7 +76,7 @@ class Testone(BaseClass):
 
             # work is pending for programme pages
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -98,7 +98,7 @@ class Testone(BaseClass):
                 # Switch back to the main window
                 self.driver.switch_to.window(main_window)
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             for url in opened_links:
                 self.driver.get(url)

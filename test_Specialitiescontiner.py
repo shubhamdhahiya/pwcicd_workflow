@@ -128,7 +128,7 @@ class Testone(BaseClass):
                     log.info("end")
                 except Exception:
                     ()
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -222,7 +222,7 @@ class Testone(BaseClass):
                 except Exception:
                     ()
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             log.info("start")
 

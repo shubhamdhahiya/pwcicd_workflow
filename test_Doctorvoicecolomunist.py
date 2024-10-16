@@ -25,6 +25,7 @@ class Testone(BaseClass):
 
         log = self.getLogger()
         log.info(name)
+        all_links = []
         helper = SeleniumHelper(self.driver)
         Ac = ActionChains(self.driver)
         window_size = self.driver.get_window_size()
@@ -56,7 +57,10 @@ class Testone(BaseClass):
             btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
 
             for bn in btn:
-                Ac.key_down(key_to_hold).click(bn).key_up(key_to_hold).perform()
+                links = bn.get_attribute("href")
+                all_links.append(links)
+            for lnks in all_links:
+                self.driver.execute_script("window.open(arguments[0])", lnks)
 
             handles = self.driver.window_handles
             for window in handles:
@@ -356,7 +360,7 @@ class Testone(BaseClass):
                     ), f"CSS properties do not match the expected values for selector {css_selector}"
                 except Exception:
                     ()
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
 
             log.info("start")
 
@@ -374,7 +378,10 @@ class Testone(BaseClass):
             btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
 
             for bn in btn:
-                Ac.key_down(key_to_hold).click(bn).key_up(key_to_hold).perform()
+                links = bn.get_attribute("href")
+                all_links.append(links)
+            for lnks in all_links:
+                self.driver.execute_script("window.open(arguments[0])", lnks)
 
             handles = self.driver.window_handles
             for window in handles:
@@ -675,7 +682,7 @@ class Testone(BaseClass):
                 except Exception:
                     ()
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
 
             self.driver.get("https://www.physiciansweekly.com/category/doctors-voice/")
             try:
@@ -691,7 +698,10 @@ class Testone(BaseClass):
             btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
 
             for bn in btn:
-                Ac.key_down(key_to_hold).click(bn).key_up(key_to_hold).perform()
+                links = bn.get_attribute("href")
+                all_links.append(links)
+            for lnks in all_links:
+                self.driver.execute_script("window.open(arguments[0])", lnks)
 
             handles = self.driver.window_handles
             for window in handles:

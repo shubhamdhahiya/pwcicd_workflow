@@ -174,7 +174,7 @@ class Testone(BaseClass):
             #     assert not status_code == 404
             # log.info("No broken links")
 
-        elif window_size["width"] > 767 and window_size["width"] < 981:
+        elif window_size["width"] > 752 and window_size["width"] < 981:
             Tittle_heading = self.driver.find_elements(
                 By.CSS_SELECTOR,
                 "#mainFeatured article .post-content .post-categories a",
@@ -298,7 +298,7 @@ class Testone(BaseClass):
             #     assert not status_code == 404
             # log.info("No broken links")
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
             Tittle_heading = self.driver.find_elements(
                 By.CSS_SELECTOR,
                 "#mainFeatured article .post-content .post-categories a",

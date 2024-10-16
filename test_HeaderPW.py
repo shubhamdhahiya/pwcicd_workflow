@@ -116,5 +116,5 @@ class Testone(BaseClass):
                 assert not status_code == 404
                 log.info("No broken links")
 
-        elif window_size["width"] <= 767:
+        elif window_size["width"] < 753:
             pass
