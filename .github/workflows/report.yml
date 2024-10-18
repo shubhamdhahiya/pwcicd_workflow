@@ -15,13 +15,13 @@ jobs:
     steps:
       - name: "Fetch Builds from BrowserStack"
         run: |
-          curl -s -u "ankitsharma_5qd1B8:ygXnpF6wGGoX8TZUqqDt" "https://api.browserstack.com/automate/builds.json?limit=1" > builds_response.json
+          curl -s -u "${{ secrets.BROWSERSTACK_USERNAME }}:${{ secrets.BROWSERSTACK_ACCESS_KEY }}" "https://api.browserstack.com/automate/builds.json?limit=1" > builds_response.json
 
       - name: "Process Builds"
         run: |
           builds_response=$(cat builds_response.json)
           latest_session=$(echo $builds_response | jq -r '.[0].automation_build.hashed_id')
-          curl -s -u "ankitsharma_5qd1B8:ygXnpF6wGGoX8TZUqqDt" "https://automate.browserstack.com/api/v1/builds/$latest_session/selenium_build_reports" > report.pdf
+          curl -s -u "${{ secrets.BROWSERSTACK_USERNAME }}:${{ secrets.BROWSERSTACK_ACCESS_KEY }}" "https://automate.browserstack.com/api/v1/builds/$latest_session/selenium_build_reports" > report.pdf
 
       - name: Send email with build result
         uses: dawidd6/action-send-mail@v3
@@ -38,7 +38,6 @@ jobs:
 
             Regards,
             PM Team
-
           to: ${{ secrets.EMAIL_TO }}
           cc: ${{ secrets.EMAIL_CC }}
           from: ${{ secrets.EMAIL_USERNAME }}
