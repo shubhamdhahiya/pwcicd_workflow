@@ -38,79 +38,78 @@ class SeleniumHelper1:
         logger.setLevel(logging.DEBUG)
         return logger
 
-    def fetch_css_via_js(self, element, css_properties_list):
+    def fetch_all_css_properties_js(self, element):
         """
-        Use JavaScript Executor to fetch the computed CSS properties of the element.
-        :param element: The WebElement to fetch CSS properties for.
-        :param css_properties_list: List of CSS properties to fetch.
-        :return: A dictionary of fetched CSS properties.
-        """
-        js_script = """
-        let element = arguments[0];
-        let properties = arguments[1];
-        let computedStyles = window.getComputedStyle(element);
-        let result = {};
-        for (let property of properties) {
-            result[property] = computedStyles.getPropertyValue(property);
-        }
-        return result;
-        """
-        return self.driver.execute_script(js_script, element, css_properties_list)
-
-    async def fetch_css_properties_async(self, element, css_properties_list):
-        """
-        Asynchronously fetch CSS properties via JavaScript Executor by offloading to a thread pool.
+        Fetch all CSS properties of the given element using JavaScript.
         :param element: Web element
-        :param css_properties_list: List of CSS properties to fetch
-        :return: Fetched CSS properties as a dictionary
+        :return: Dictionary of all CSS properties and their values
+        """
+        # JavaScript to fetch all computed styles
+        js_code = """
+            var styles = window.getComputedStyle(arguments[0]);
+            var result = {};
+            for (var i = 0; i < styles.length; i++) {
+                var prop = styles[i];
+                result[prop] = styles.getPropertyValue(prop);
+            }
+            return result;
+        """
+        return element.parent.execute_script(js_code, element)
+
+    async def fetch_css_properties_async(self, element):
+        """
+        Asynchronously fetch all CSS properties using a single JS call.
+        :param element: Web element
+        :return: Dictionary of all CSS properties
         """
         loop = asyncio.get_event_loop()
+        executor = ThreadPoolExecutor()
         return await loop.run_in_executor(
-            self.executor,
-            self.fetch_css_via_js,
-            element,
-            css_properties_list,
+            executor, self.fetch_all_css_properties_js, element
         )
 
     async def fetch_and_check_css_properties(
         self, css_selector, expected_css_properties, css_properties_list
     ):
         """
-        Optimized with asyncio: Fetches CSS properties from elements using the given CSS selector
+        Optimized with asyncio: Fetches all CSS properties from elements using the given CSS selector
         and checks them against expected values.
         :param css_selector: CSS selector to locate elements
         :param expected_css_properties: Set of expected CSS properties
-        :param css_properties_list: List of CSS properties to fetch
+        :param css_properties_list: List of CSS properties to fetch and compare
         :return: True if the fetched properties match the expected properties, False otherwise
         """
+        wait = WebDriverWait(self.driver, 20)
+        elements = wait.until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, css_selector))
+        )
+
         try:
-            # Wait for all elements to be located
-            wait = WebDriverWait(self.driver, 20)
-            elements = wait.until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, css_selector))
-            )
+            fetched_css_properties = set()
 
-            if not elements:
-                return False
+            # Create a thread pool executor
+            with ThreadPoolExecutor() as executor:
+                # Schedule async tasks to fetch all CSS properties for each element
+                tasks = [
+                    self.fetch_css_properties_async(element) for element in elements
+                ]
 
-            # To store fetched CSS properties
-            for element in elements:
-                fetched_css_properties = set()
+                # Wait for all tasks to complete and gather results
+                results = await asyncio.gather(*tasks)
 
-                # Fetch properties asynchronously using JavaScript Executor
-                fetched_props_dict = await self.fetch_css_properties_async(
-                    element, css_properties_list
-                )
+            # Filter the fetched properties based on the required CSS properties list
+            for result in results:
+                filtered_properties = {
+                    result[prop] for prop in css_properties_list if prop in result
+                }
+                fetched_css_properties.update(filtered_properties)
 
-                # Convert the fetched dictionary values into a set for comparison
-                fetched_css_properties = set(fetched_props_dict.values())
+                # Early exit if all expected properties are fetched
+                if fetched_css_properties == expected_css_properties:
+                    return True
 
-                # Compare with the expected properties
-                if fetched_css_properties != expected_css_properties:
-                    return False
-
-            # If all elements match the expected properties
-            return True
+            # Final comparison after fetching all properties
+            return fetched_css_properties == expected_css_properties
 
         except (StaleElementReferenceException, NoSuchElementException) as e:
             print(f"Error occurred: {str(e)}")

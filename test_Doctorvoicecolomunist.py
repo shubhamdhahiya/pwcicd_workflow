@@ -60,7 +60,11 @@ class Testone(BaseClass):
                 links = bn.get_attribute("href")
                 all_links.append(links)
             for lnks in all_links:
-                self.driver.execute_script("window.open(arguments[0])", lnks)
+                self.driver.execute_script(f"window.open('{lnks}', '_blank');")
+            wait.until(
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
+            time.sleep(20)
 
             handles = self.driver.window_handles
             for window in handles:
@@ -381,7 +385,11 @@ class Testone(BaseClass):
                 links = bn.get_attribute("href")
                 all_links.append(links)
             for lnks in all_links:
-                self.driver.execute_script("window.open(arguments[0])", lnks)
+                self.driver.execute_script(f"window.open('{lnks}', '_blank');")
+            wait.until(
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
+            time.sleep(20)
 
             handles = self.driver.window_handles
             for window in handles:
@@ -701,7 +709,11 @@ class Testone(BaseClass):
                 links = bn.get_attribute("href")
                 all_links.append(links)
             for lnks in all_links:
-                self.driver.execute_script("window.open(arguments[0])", lnks)
+                self.driver.execute_script(f"window.open('{lnks}', '_blank');")
+            wait.until(
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
+            time.sleep(20)
 
             handles = self.driver.window_handles
             for window in handles:
