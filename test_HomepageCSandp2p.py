@@ -42,12 +42,12 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#home-condition-section #conditionSpotlightsection #conditionSpotlighleftsec",
-                    {"2.5%", "50%", "1px solid #bfbfbf"},
+                    {"32px", "640px", "1px solid rgb(191, 191, 191)"},
                     ["margin-right", "width", "border-right"],
                 ),
                 (
                     "#conditionSpotlightsection div#conditionSpotlightrightsec div#lightfeaturedsec img",
-                    {"100%"},
+                    {"604.797px"},
                     ["width"],
                 ),
                 (
@@ -57,7 +57,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#lightfeaturedsec h3",
-                    {"10px", "#152c6c", "38px", "700", "32px", "Elza"},
+                    {"10px", "rgba(21, 44, 108, 1)", "38px", "700", "32px", "Elza"},
                     [
                         "margin-top",
                         "color",
@@ -97,12 +97,12 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#home-condition-section #conditionSpotlightsection #conditionSpotlighleftsec",
-                    {"2.5%", "50%", "1px solid #bfbfbf"},
+                    {"0px", "713.412px", "0.941176px solid rgb(191, 191, 191)"},
                     ["margin-right", "width", "border-right"],
                 ),
                 (
                     "#conditionSpotlightsection div#conditionSpotlightrightsec div#lightfeaturedsec img",
-                    {"100%"},
+                    {"713.412px"},
                     ["width"],
                 ),
                 (
@@ -112,7 +112,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#lightfeaturedsec h3",
-                    {"10px", "#152c6c", "38px", "700", "32px", "Elza"},
+                    {"10px", "rgba(21, 44, 108, 1)", "38px", "700", "32px", "Elza"},
                     [
                         "margin-top",
                         "color",
@@ -151,12 +151,12 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#home-condition-section #conditionSpotlightsection #conditionSpotlighleftsec",
-                    {"2.5%", "50%", "1px solid #bfbfbf"},
+                    {"0px", "412.19px", "0.761905px solid rgb(191, 191, 191)"},
                     ["margin-right", "width", "border-right"],
                 ),
                 (
                     "#conditionSpotlightsection div#conditionSpotlightrightsec div#lightfeaturedsec img",
-                    {"100%"},
+                    {"372.19px"},
                     ["width"],
                 ),
                 (
@@ -166,7 +166,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#lightfeaturedsec h3",
-                    {"10px", "#152c6c", "38px", "700", "32px", "Elza"},
+                    {"10px", "rgba(21, 44, 108, 1)", "38px", "700", "32px", "Elza"},
                     [
                         "margin-top",
                         "color",

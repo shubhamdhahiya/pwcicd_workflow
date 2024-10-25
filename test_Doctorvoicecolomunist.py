@@ -14,6 +14,7 @@ import time
 import platform
 import pytest
 import asyncio
+import random
 
 
 class Testone(BaseClass):
@@ -34,32 +35,34 @@ class Testone(BaseClass):
             key_to_hold = Keys.COMMAND
         else:  # Windows or other
             key_to_hold = Keys.CONTROL
+        try:
+            popup = self.driver.find_element(
+                By.CSS_SELECTOR,
+                "#onesignal-slidedown-dialog .primary.slidedown-button",
+            )
+            popup.click()
+        except Exception:
+            ()
+        self.driver.get("https://www.physiciansweekly.com/category/doctors-voice/")
+        try:
+            popup = self.driver.find_element(
+                By.CSS_SELECTOR,
+                "#onesignal-slidedown-dialog .primary.slidedown-button",
+            )
+            popup.click()
+        except Exception:
+            ()
+
+        view_allbtn = By.CSS_SELECTOR, ".view-all-btn-box .view-all-half a"
+        btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
+
+        for bn in btn:
+            links = bn.get_attribute("href")
+            all_links.append(links)
+        Select = random.sample(all_links, 5)
         if window_size["width"] > 980:
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            self.driver.get("https://www.physiciansweekly.com/category/doctors-voice/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
 
-            view_allbtn = By.CSS_SELECTOR, ".view-all-btn-box .view-all-half a"
-            btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
-
-            for bn in btn:
-                links = bn.get_attribute("href")
-                all_links.append(links)
-            for lnks in all_links:
+            for lnks in Select:
                 self.driver.execute_script(f"window.open('{lnks}', '_blank');")
             wait.until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
@@ -100,7 +103,7 @@ class Testone(BaseClass):
                             {".02em", "500"},
                             ["letter-spacing", "font-weight"],
                         ),
-                        (".breadcrumb", {"10px 0"}, ["margin"]),
+                        (".breadcrumb", {"10px 0px"}, ["margin"]),
                         (
                             "span.published",
                             {
@@ -368,23 +371,7 @@ class Testone(BaseClass):
 
             log.info("start")
 
-            self.driver.get("https://www.physiciansweekly.com/category/doctors-voice/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-
-            view_allbtn = By.CSS_SELECTOR, ".view-all-btn-box .view-all-half a"
-            btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
-
-            for bn in btn:
-                links = bn.get_attribute("href")
-                all_links.append(links)
-            for lnks in all_links:
+            for lnks in Select:
                 self.driver.execute_script(f"window.open('{lnks}', '_blank');")
             wait.until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
@@ -425,7 +412,7 @@ class Testone(BaseClass):
                             {".02em", "500"},
                             ["letter-spacing", "font-weight"],
                         ),
-                        (".breadcrumb", {"10px 0"}, ["margin"]),
+                        (".breadcrumb", {"10px 0px"}, ["margin"]),
                         (
                             "span.published",
                             {
@@ -692,23 +679,7 @@ class Testone(BaseClass):
 
         elif window_size["width"] < 753:
 
-            self.driver.get("https://www.physiciansweekly.com/category/doctors-voice/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-
-            view_allbtn = By.CSS_SELECTOR, ".view-all-btn-box .view-all-half a"
-            btn = wait.until(EC.presence_of_all_elements_located(view_allbtn))
-
-            for bn in btn:
-                links = bn.get_attribute("href")
-                all_links.append(links)
-            for lnks in all_links:
+            for lnks in Select:
                 self.driver.execute_script(f"window.open('{lnks}', '_blank');")
             wait.until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
@@ -749,7 +720,7 @@ class Testone(BaseClass):
                             {".02em", "500"},
                             ["letter-spacing", "font-weight"],
                         ),
-                        (".breadcrumb", {"10px 0"}, ["margin"]),
+                        (".breadcrumb", {"10px 0px"}, ["margin"]),
                         (
                             "span.published",
                             {

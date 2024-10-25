@@ -178,7 +178,7 @@ class Testone(BaseClass):
                         ),
                         (
                             ".meeting_brief_new_navigation",
-                            {"0px 20px", "0px 76.5px"},
+                            {"0px 20px", "0px"},
                             ["margin", "padding"],
                         ),
                     ]
@@ -326,7 +326,7 @@ class Testone(BaseClass):
                 ),
                 (
                     ".meeting_brief_new_navigation",
-                    {"0px 20px", "0px 76.5px"},
+                    {"0px 20px", "0px"},
                     ["margin", "padding"],
                 ),
             ]
@@ -491,7 +491,7 @@ class Testone(BaseClass):
                         ),
                         (
                             ".meeting_brief_new_navigation",
-                            {"0px 20px", "0px 76.5px"},
+                            {"0px 20px", "0px"},
                             ["margin", "padding"],
                         ),
                     ]
@@ -639,7 +639,7 @@ class Testone(BaseClass):
                 ),
                 (
                     ".meeting_brief_new_navigation",
-                    {"0px 20px", "0px 76.5px"},
+                    {"0px 20px", "0px"},
                     ["margin", "padding"],
                 ),
             ]
@@ -802,7 +802,7 @@ class Testone(BaseClass):
                         ),
                         (
                             ".meeting_brief_new_navigation",
-                            {"0px 20px", "0px 76.5px"},
+                            {"0px 20px", "0px"},
                             ["margin", "padding"],
                         ),
                     ]
@@ -855,7 +855,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "span.published",
                     {
@@ -950,7 +950,7 @@ class Testone(BaseClass):
                 ),
                 (
                     ".meeting_brief_new_navigation",
-                    {"0px 20px", "0px 76.5px"},
+                    {"0px 20px", "0px"},
                     ["margin", "padding"],
                 ),
             ]

@@ -76,7 +76,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
@@ -182,12 +182,12 @@ class Testone(BaseClass):
                 (
                     ".wp-pagenavi a",
                     {
-                        "0px none rgb(21, 44, 108)",
-                        "0px 10px 8px 0px",
-                        "18px",
-                        "rgba(21, 44, 108, 1)",
-                        "inline-block",
-                        "700",
+                        "0px none rgba(0, 0, 0, 0.75)",
+                        "2px",
+                        "14px",
+                        "rgba(0, 0, 0, 0.75)",
+                        "inline",
+                        "400",
                     },
                     [
                         "margin",
@@ -258,7 +258,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
@@ -364,12 +364,12 @@ class Testone(BaseClass):
                 (
                     ".wp-pagenavi a",
                     {
-                        "normal",
                         "14px",
                         "0px none rgba(0, 0, 0, 0.75)",
                         "inline",
                         "rgba(0, 0, 0, 0.75)",
                         "2px",
+                        "400",
                     },
                     [
                         "margin",
@@ -438,7 +438,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
@@ -551,7 +551,6 @@ class Testone(BaseClass):
                         "0px none rgba(0, 0, 0, 0.75)",
                     },
                     [
-                        "margin",
                         "font-size",
                         "display",
                         "font-weight",

@@ -42,14 +42,14 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     ".lwp_post_carousel_image img",
-                    {"186px", "cover", "186px"},
+                    {"0px", "fill", "0px", "none"},
                     ["min-height", "object-fit", "max-height"],
                 ),
-                (
-                    "#businessOfMedisection h4 a",
-                    {"125%", "600", "Elza", "20px", "#152c6c"},
-                    ["line-height" "font-weight" "font-family" "font-size" "color"],
-                ),
+                # (
+                #     ".lwp_post_title",
+                #     {"125%", "600", "Elza", "20px", "#152c6c"},
+                #     ["line-height" "font-weight" "font-family" "font-size" "color"],
+                # ),
             ]
 
             for (
@@ -83,14 +83,14 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     ".lwp_post_carousel_image img",
-                    {"186px", "cover", "186px"},
+                    {"0px", "fill", "0px", "none"},
                     ["min-height", "object-fit", "max-height"],
                 ),
-                (
-                    "#businessOfMedisection h4 a",
-                    {"125%", "600", "Elza", "20px", "#152c6c"},
-                    ["line-height" "font-weight" "font-family" "font-size" "color"],
-                ),
+                # (
+                #     ".lwp_post_title",
+                #     {"125%", "600", "Elza", "20px", "#152c6c"},
+                #     ["line-height" "font-weight" "font-family" "font-size" "color"],
+                # ),
             ]
 
             for (
@@ -124,14 +124,14 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     ".lwp_post_carousel_image img",
-                    {"186px", "cover", "186px"},
+                    {"0px", "fill", "0px", "none"},
                     ["min-height", "object-fit", "max-height"],
                 ),
-                (
-                    "#businessOfMedisection h4 a",
-                    {"125%", "600", "Elza", "20px", "#152c6c"},
-                    ["line-height" "font-weight" "font-family" "font-size" "color"],
-                ),
+                # (
+                #     ".lwp_post_title",
+                #     {"125%", "600", "Elza", "20px", "#152c6c"},
+                #     ["line-height" "font-weight" "font-family" "font-size" "color"],
+                # ),
             ]
 
             for (

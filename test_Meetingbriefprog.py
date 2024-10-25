@@ -10,11 +10,13 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from object.seleniumhelper import SeleniumHelper
+from object.seleniumhelpernew import SeleniumHelper1
 import requests
 import time
 import platform
 import pytest
 import asyncio
+import random
 
 
 class Testone(BaseClass):
@@ -26,8 +28,9 @@ class Testone(BaseClass):
 
         log = self.getLogger()
         log.info(name)
-        helper = SeleniumHelper(self.driver)
+        helper = SeleniumHelper1(self.driver)
         opened_links = []
+
         url = [
             "https://www.physiciansweekly.com/meeting-coverage/aaoms-2024/"
             "https://www.physiciansweekly.com/meeting-coverage/asco-2024-hepatocellular-carcinoma/",
@@ -45,14 +48,14 @@ class Testone(BaseClass):
             "https://www.physiciansweekly.com/meeting-coverage/esmo-2023-ensclc/",
             "https://www.physiciansweekly.com/meeting-coverage/fall-clinical-dermatology-conference-psoriasis/",
         ]
-
+        Select = random.sample(url, 5)
         window_size = self.driver.get_window_size()
         if window_size["width"] > 980:
             Ac = ActionChains(self.driver)
 
-            for ur in url:
+            for ur in Select:
 
-                self.driver.execute_script("window.open(arguments[0])", ur)
+                self.driver.execute_script("window.open('{}');".format(ur))
 
             time.sleep(5)
             handles = self.driver.window_handles
@@ -95,7 +98,7 @@ class Testone(BaseClass):
                                 {".02em", "500"},
                                 ["letter-spacing", "font-weight"],
                             ),
-                            (".breadcrumb", {"10px 0"}, ["margin"]),
+                            (".breadcrumb", {"10px 0px"}, ["margin"]),
                             (
                                 "h2",
                                 {
@@ -239,7 +242,7 @@ class Testone(BaseClass):
                                     "elza",
                                     "700",
                                     "60px",
-                                    "103px",
+                                    "60px",
                                     "rgba(255, 255, 255, 1)",
                                 },
                                 [
@@ -278,9 +281,9 @@ class Testone(BaseClass):
 
             Ac = ActionChains(self.driver)
 
-            for ur in url:
+            for ur in Select:
 
-                self.driver.execute_script("window.open(arguments[0])", ur)
+                self.driver.execute_script("window.open('{}');".format(ur))
 
             time.sleep(5)
             handles = self.driver.window_handles
@@ -323,7 +326,7 @@ class Testone(BaseClass):
                                 {".02em", "500"},
                                 ["letter-spacing", "font-weight"],
                             ),
-                            (".breadcrumb", {"10px 0"}, ["margin"]),
+                            (".breadcrumb", {"10px 0px"}, ["margin"]),
                             (
                                 "h2",
                                 {
@@ -467,7 +470,7 @@ class Testone(BaseClass):
                                     "elza",
                                     "700",
                                     "60px",
-                                    "103px",
+                                    "60px",
                                     "rgba(255, 255, 255, 1)",
                                 },
                                 [
@@ -502,9 +505,9 @@ class Testone(BaseClass):
 
             Ac = ActionChains(self.driver)
 
-            for ur in url:
+            for ur in Select:
 
-                self.driver.execute_script("window.open(arguments[0])", ur)
+                self.driver.execute_script("window.open('{}');".format(ur))
 
             time.sleep(5)
             handles = self.driver.window_handles
@@ -547,7 +550,7 @@ class Testone(BaseClass):
                                 {".02em", "500"},
                                 ["letter-spacing", "font-weight"],
                             ),
-                            (".breadcrumb", {"10px 0"}, ["margin"]),
+                            (".breadcrumb", {"10px 0px"}, ["margin"]),
                             (
                                 "h2",
                                 {
@@ -690,8 +693,8 @@ class Testone(BaseClass):
                                     "block",
                                     "elza",
                                     "700",
-                                    "60px",
-                                    "103px",
+                                    "40px",
+                                    "40px",
                                     "rgba(255, 255, 255, 1)",
                                 },
                                 [

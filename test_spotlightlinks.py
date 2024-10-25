@@ -66,22 +66,30 @@ class Testone(BaseClass):
                     log.info("All links verified successfully")
                 except NoSuchElementException and TimeoutException:
                     self.driver.close()
-                for handle in self.driver.window_handles:
-                    if handle != main_window:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-
-                # Switch back to the main window
-                self.driver.switch_to.window(main_window)
 
             # work is pending for programme pages
 
         elif window_size["width"] > 752 and window_size["width"] < 981:
 
-            log.info("start")
-
+            try:
+                popup = self.driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#onesignal-slidedown-dialog .primary.slidedown-button",
+                )
+                popup.click()
+            except Exception:
+                ()
             for url in opened_links:
                 self.driver.get(url)
+                try:
+                    popup = self.driver.find_element(
+                        By.CSS_SELECTOR,
+                        "#onesignal-slidedown-dialog .primary.slidedown-button",
+                    )
+                    popup.click()
+                except Exception:
+                    ()
+                log.info("start")
                 try:
                     selectors = [
                         "div#cat-relevant.sub-cat-section .et_pb_row.cat-section.column-list-items a"
@@ -90,32 +98,33 @@ class Testone(BaseClass):
                     log.info("All links verified successfully")
                 except NoSuchElementException and TimeoutException:
                     self.driver.close()
-                for handle in self.driver.window_handles:
-                    if handle != main_window:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-
-                # Switch back to the main window
-                self.driver.switch_to.window(main_window)
-            assert all in result_broken == "pass"
 
         elif window_size["width"] < 753:
 
+            try:
+                popup = self.driver.find_element(
+                    By.CSS_SELECTOR,
+                    "#onesignal-slidedown-dialog .primary.slidedown-button",
+                )
+                popup.click()
+            except Exception:
+                ()
             for url in opened_links:
                 self.driver.get(url)
+                try:
+                    popup = self.driver.find_element(
+                        By.CSS_SELECTOR,
+                        "#onesignal-slidedown-dialog .primary.slidedown-button",
+                    )
+                    popup.click()
+                except Exception:
+                    ()
+                log.info("start")
                 try:
                     selectors = [
                         "div#cat-relevant.sub-cat-section .et_pb_row.cat-section.column-list-items a"
                     ]
-                    additional_links = [url]
                     asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
                     log.info("All links verified successfully")
                 except NoSuchElementException and TimeoutException:
                     self.driver.close()
-                for handle in self.driver.window_handles:
-                    if handle != main_window:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-
-                # Switch back to the main window
-                self.driver.switch_to.window(main_window)

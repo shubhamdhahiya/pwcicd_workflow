@@ -357,7 +357,12 @@ class Testone(BaseClass):
                 ),
                 (
                     ".spotlights-post-media img",
-                    {"366.59375px", "cover", "340px", "1px solid rgb(191, 191, 191)"},
+                    {
+                        "713.412px",
+                        "cover",
+                        "340px",
+                        "0.941176px solid rgb(191, 191, 191)",
+                    },
                     [
                         "width",
                         "max-height",
@@ -431,7 +436,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
@@ -533,9 +538,9 @@ class Testone(BaseClass):
                     ".spotlights-post-media img",
                     {
                         "cover",
-                        "340px",
-                        "713.412px",
-                        "0.941176px solid rgb(191, 191, 191)",
+                        "372.19px",
+                        "250px",
+                        "0.761905px solid rgb(191, 191, 191)",
                     },
                     [
                         "width",

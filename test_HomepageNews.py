@@ -52,12 +52,12 @@ class Testone(BaseClass):
                 # ),
                 (
                     ".et_pb_blog_extras_21 .et_pb_post.et_pb_post_extra .entry-title a",
-                    {"700", "#FFFFFF", "39px", "Elza"},
+                    {"700", "rgba(255, 255, 255, 1)", "39px", "elza"},
                     ["font-weight", "font-size", "color", "font-family"],
                 ),
                 (
                     "#newsSection .newRightblogsec article .post-content h2.entry-title a",
-                    {"left", "23px", "500", "18px", "Elza"},
+                    {"left", "23px", "500", "18px", "elza"},
                     [
                         "text-align",
                         "line-height",
@@ -69,11 +69,11 @@ class Testone(BaseClass):
                 (
                     "#newsSection .newRightblogsec article .post-content p.post-meta",
                     {
-                        "0",
+                        "0px",
                         "block",
-                        "#0179d9",
+                        "rgba(1, 121, 217, 1)",
                         "left",
-                        "0.025em",
+                        "0.35px",
                         "500",
                         "14px",
                         "Elza",
@@ -171,12 +171,12 @@ class Testone(BaseClass):
                 # ),
                 (
                     ".et_pb_blog_extras_21 .et_pb_post.et_pb_post_extra .entry-title a",
-                    {"700", "#FFFFFF", "39px", "Elza"},
+                    {"700", "rgba(255, 255, 255, 1)", "39px", "elza"},
                     ["font-weight", "font-size", "color", "font-family"],
                 ),
                 (
                     "#newsSection .newRightblogsec article .post-content h2.entry-title a",
-                    {"left", "23px", "500", "18px", "Elza"},
+                    {"left", "23px", "500", "18px", "elza"},
                     [
                         "text-align",
                         "line-height",
@@ -188,11 +188,11 @@ class Testone(BaseClass):
                 (
                     "#newsSection .newRightblogsec article .post-content p.post-meta",
                     {
-                        "0",
+                        "0px",
                         "block",
-                        "#0179d9",
+                        "rgba(1, 121, 217, 1)",
                         "left",
-                        "0.025em",
+                        "0.35px",
                         "500",
                         "14px",
                         "Elza",
@@ -291,12 +291,12 @@ class Testone(BaseClass):
                 # ),
                 (
                     ".et_pb_blog_extras_21 .et_pb_post.et_pb_post_extra .entry-title a",
-                    {"700", "#FFFFFF", "39px", "Elza"},
+                    {"700", "rgba(255, 255, 255, 1)", "35px", "elza"},
                     ["font-weight", "font-size", "color", "font-family"],
                 ),
                 (
                     "#newsSection .newRightblogsec article .post-content h2.entry-title a",
-                    {"left", "23px", "500", "18px", "Elza"},
+                    {"left", "23px", "500", "18px", "elza"},
                     [
                         "text-align",
                         "line-height",
@@ -308,11 +308,11 @@ class Testone(BaseClass):
                 (
                     "#newsSection .newRightblogsec article .post-content p.post-meta",
                     {
-                        "0",
+                        "0px",
                         "block",
-                        "#0179d9",
+                        "rgba(1, 121, 217, 1)",
                         "left",
-                        "0.025em",
+                        "0.35px",
                         "500",
                         "14px",
                         "Elza",

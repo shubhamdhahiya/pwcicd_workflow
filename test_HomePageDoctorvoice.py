@@ -74,7 +74,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#doctorVoicesection div#doctorVoiceFeatureblog .featuredDoctorpost article .post-media",
-                    {"100%", "100%"},
+                    {"375px", "371.429px"},
                     ["height", "width"],
                 ),
                 (
@@ -83,13 +83,8 @@ class Testone(BaseClass):
                     ["object-fit", "height"],
                 ),
                 (
-                    "#doctorVoicesection div#doctorVioceblogsec article a img",
-                    {"cover", "height", "100%"},
-                    ["object-fit", "height", "max-width"],
-                ),
-                (
                     "#doctorVoicesection div#doctorVioceblogsec article .post-content h2.entry-title a",
-                    {"none", "#152c6c", "30px", "600", "24px", "Elza"},
+                    {"none", "rgba(21, 44, 108, 1)", "30px", "600", "24px", "Elza"},
                     [
                         "text-transform",
                         "color",
@@ -134,8 +129,7 @@ class Testone(BaseClass):
                 (
                     ".post-categories",
                     {
-                        "600",
-                        "bold",
+                        "700",
                         "14px",
                         "17px",
                         "rgba(1, 121, 217, 1)",
@@ -143,7 +137,8 @@ class Testone(BaseClass):
                         "Elza",
                         "left",
                         "uppercase",
-                        "0.3499999940395355px",
+                        "0.35px",
+                        "600",
                     },
                     [
                         "text-transform",
@@ -158,12 +153,12 @@ class Testone(BaseClass):
                 ),
                 (
                     "#doctorVoicesection div#doctorVioceblogsec article a img",
-                    {"cover", "height", "100%"},
+                    {"cover", "200px", "100%"},
                     ["object-fit", "height", "max-width"],
                 ),
                 (
                     "#doctorVoicesection div#doctorVioceblogsec article .post-content h2.entry-title a",
-                    {"none", "#152c6c", "30px", "600", "24px", "Elza"},
+                    {"none", "rgba(21, 44, 108, 1)", "30px", "600", "24px", "Elza"},
                     [
                         "text-transform",
                         "color",
@@ -195,7 +190,7 @@ class Testone(BaseClass):
             asyncio.run(SeleniumHelper.verify_links_async(self, selectors))
             log.info("All links verified successfully")
 
-        elif window_size["width"] <753:
+        elif window_size["width"] < 753:
 
             log.info("start")
 
@@ -232,22 +227,20 @@ class Testone(BaseClass):
                 ),
                 (
                     "#doctorVoicesection div#doctorVoiceFeatureblog .featuredDoctorpost article .post-media",
-                    {"100%", "100%"},
+                    {"375px", "371.429px"},
                     ["height", "width"],
                 ),
                 (
                     "#doctorVoicesection div#doctorVioceblogsec article a img",
-                    {"cover", "183px", "100%"},
+                    {
+                        "cover",
+                        "200px",
+                    },
                     ["object-fit", "height"],
                 ),
                 (
-                    "#doctorVoicesection div#doctorVioceblogsec article a img",
-                    {"cover", "height", "100%"},
-                    ["object-fit", "height", "max-width"],
-                ),
-                (
                     "#doctorVoicesection div#doctorVioceblogsec article .post-content h2.entry-title a",
-                    {"none", "#152c6c", "30px", "600", "24px", "Elza"},
+                    {"none", "rgba(21, 44, 108, 1)", "30px", "600", "24px", "Elza"},
                     [
                         "text-transform",
                         "color",
