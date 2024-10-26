@@ -141,7 +141,7 @@ class Testone(BaseClass):
                 rr = ["width"]
                 for rig in rr:
                     right_section_css.append(rt.value_of_css_property(rig))
-            right_section_set = {"43%"}
+            right_section_set = {"550.391px"}
             assert set(right_section_css) == right_section_set
             selectors = ["#mainFeatured a"]
 

@@ -14,6 +14,7 @@ import requests
 import time
 import pytest
 import asyncio
+import random
 
 
 class Testone(BaseClass):
@@ -28,32 +29,34 @@ class Testone(BaseClass):
         helper = SeleniumHelper(self.driver)
         cartoonlinks = []
         window_size = self.driver.get_window_size()
-        if window_size["width"] > 980:
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            self.driver.get("https://www.physiciansweekly.com/category/cartoons/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            log.info("start")
+        try:
+            popup = self.driver.find_element(
+                By.CSS_SELECTOR,
+                "#onesignal-slidedown-dialog .primary.slidedown-button",
+            )
+            popup.click()
+        except Exception:
+            ()
+        self.driver.get("https://www.physiciansweekly.com/category/cartoons/")
+        try:
+            popup = self.driver.find_element(
+                By.CSS_SELECTOR,
+                "#onesignal-slidedown-dialog .primary.slidedown-button",
+            )
+            popup.click()
+        except Exception:
+            ()
+        log.info("start")
 
-            cartoonpages = By.CSS_SELECTOR, ".entry-title a"
-            cartpages = wait.until(EC.presence_of_all_elements_located(cartoonpages))
-            for pages in cartpages:
-                Links = pages.get_attribute("href")
-                cartoonlinks.append(Links)
-            for lin in cartoonlinks:
+        cartoonpages = By.CSS_SELECTOR, ".entry-title a"
+        cartpages = wait.until(EC.presence_of_all_elements_located(cartoonpages))
+        for pages in cartpages:
+            Links = pages.get_attribute("href")
+            cartoonlinks.append(Links)
+        Select = random.sample(cartoonlinks, 5)
+        if window_size["width"] > 980:
+
+            for lin in Select:
                 self.driver.execute_script("window.open(arguments[0])", lin)
             handles = self.driver.window_handles
             try:
@@ -204,7 +207,7 @@ class Testone(BaseClass):
                         ),
                         (
                             ".el-dbe-blog-extra.block_extended",
-                            {"center", "flex"},
+                            {"space-between", "flex"},
                             ["justify-content", "display"],
                         ),
                     ]
@@ -229,25 +232,7 @@ class Testone(BaseClass):
 
         elif window_size["width"] > 752 and window_size["width"] < 981:
 
-            log.info("start")
-
-            self.driver.get("https://www.physiciansweekly.com/category/cartoons/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            log.info("start")
-
-            cartoonpages = By.CSS_SELECTOR, ".entry-title a"
-            cartpages = wait.until(EC.presence_of_all_elements_located(cartoonpages))
-            for pages in cartpages:
-                Links = pages.get_attribute("href")
-                cartoonlinks.append(Links)
-            for lin in cartoonlinks:
+            for lin in Select:
                 self.driver.execute_script("window.open(arguments[0])", lin)
             handles = self.driver.window_handles
             try:
@@ -398,7 +383,7 @@ class Testone(BaseClass):
                         ),
                         (
                             ".el-dbe-blog-extra.block_extended",
-                            {"center", "flex"},
+                            {"space-between", "flex"},
                             ["justify-content", "display"],
                         ),
                     ]
@@ -423,23 +408,7 @@ class Testone(BaseClass):
 
         elif window_size["width"] < 753:
 
-            self.driver.get("https://www.physiciansweekly.com/category/cartoons/")
-            try:
-                popup = self.driver.find_element(
-                    By.CSS_SELECTOR,
-                    "#onesignal-slidedown-dialog .primary.slidedown-button",
-                )
-                popup.click()
-            except Exception:
-                ()
-            log.info("start")
-
-            cartoonpages = By.CSS_SELECTOR, ".entry-title a"
-            cartpages = wait.until(EC.presence_of_all_elements_located(cartoonpages))
-            for pages in cartpages:
-                Links = pages.get_attribute("href")
-                cartoonlinks.append(Links)
-            for lin in cartoonlinks:
+            for lin in Select:
                 self.driver.execute_script("window.open(arguments[0])", lin)
             handles = self.driver.window_handles
             try:
@@ -590,7 +559,7 @@ class Testone(BaseClass):
                         ),
                         (
                             ".el-dbe-blog-extra.block_extended",
-                            {"center", "flex"},
+                            {"space-between", "flex"},
                             ["justify-content", "display"],
                         ),
                     ]

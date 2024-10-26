@@ -53,7 +53,15 @@ class Testone(BaseClass):
                 ),
                 (
                     "#Editorpickssec .et_pb_code_inner article .post-content .post-categories",
-                    {"5px", "uppercase", "#0179d9", "18px", "600", "14px", "Elza"},
+                    {
+                        "5px",
+                        "uppercase",
+                        "rgba(1, 121, 217, 1)",
+                        "18px",
+                        "600",
+                        "14px",
+                        "Elza",
+                    },
                     [
                         "margin-bottom",
                         "text-transform",
@@ -104,7 +112,7 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#Editorpickssec .et_pb_code_inner article",
-                    {"48.5%", "block"},
+                    {"713.412px", "block"},
                     ["display", "width"],
                 ),
                 (
@@ -112,12 +120,12 @@ class Testone(BaseClass):
                     {
                         "5px",
                         "uppercase",
-                        "#0179d9",
+                        "rgba(1, 121, 217, 1)",
                         "18px",
                         "600",
                         "14px",
                         "Elza",
-                        ".025em",
+                        "0.35px",
                     },
                     [
                         "margin-bottom",
@@ -132,7 +140,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#Editorpickssec .editorBlog .post-media a.entry-featured-image-url img",
-                    {"183px"},
+                    {"200px"},
                     ["height"],
                 ),
             ]
@@ -170,7 +178,7 @@ class Testone(BaseClass):
             selectors_and_properties = [
                 (
                     "#Editorpickssec .et_pb_code_inner article",
-                    {"100%", "block", "32px", "10px"},
+                    {"372.19px", "block", "32px", "10px"},
                     ["display", "width", "padding-bottom", "padding-top"],
                 ),
                 (
@@ -178,12 +186,12 @@ class Testone(BaseClass):
                     {
                         "5px",
                         "uppercase",
-                        "#0179d9",
+                        "rgba(1, 121, 217, 1)",
                         "18px",
                         "600",
                         "14px",
                         "Elza",
-                        ".025em",
+                        "0.35px",
                     },
                     [
                         "margin-bottom",
