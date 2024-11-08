@@ -86,13 +86,11 @@ class Testone(BaseClass):
                     "Elza",
                     "rgba(0, 0, 0, 0.5)",
                     "23.8px",
-                    "14px",
                     "400",
-                    "elza",
                     "rgba(148, 148, 148, 1)",
-                    "23.8px",
+                    "21px",
                 ]
-                or len(set(Cssvalue)) == 7
+                or len(set(Cssvalue)) == 6
             )
             assert len(set(iconCss)) == 3
             for soc in social_link:

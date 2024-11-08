@@ -197,7 +197,7 @@ class Testone(BaseClass):
                 (
                     "#wekly-news-container ul.meeting-coverage-list li a",
                     {
-                        "elza",
+                        "Elza",
                         "24px",
                         "rgba(21, 44, 108, 1)",
                         "600",
@@ -401,7 +401,7 @@ class Testone(BaseClass):
                 (
                     "#wekly-news-container ul.meeting-coverage-list li a",
                     {
-                        "elza",
+                        "Elza",
                         "24px",
                         "rgba(21, 44, 108, 1)",
                         "600",
@@ -603,7 +603,7 @@ class Testone(BaseClass):
                 (
                     "#wekly-news-container ul.meeting-coverage-list li a",
                     {
-                        "elza",
+                        "Elza",
                         "24px",
                         "rgba(21, 44, 108, 1)",
                         "600",

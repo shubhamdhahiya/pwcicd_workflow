@@ -28,7 +28,7 @@ class Testone(BaseClass):
 
         log = self.getLogger()
         log.info(name)
-        helper = SeleniumHelper1(self.driver)
+        helper = SeleniumHelper(self.driver)
         opened_links = []
 
         url = [
@@ -239,7 +239,7 @@ class Testone(BaseClass):
                                 "#et-boc h1.is_archive",
                                 {
                                     "block",
-                                    "elza",
+                                    "Elza",
                                     "700",
                                     "60px",
                                     "60px",
@@ -467,7 +467,7 @@ class Testone(BaseClass):
                                 "#et-boc h1.is_archive",
                                 {
                                     "block",
-                                    "elza",
+                                    "Elza",
                                     "700",
                                     "60px",
                                     "60px",
@@ -691,7 +691,7 @@ class Testone(BaseClass):
                                 "#et-boc h1.is_archive",
                                 {
                                     "block",
-                                    "elza",
+                                    "Elza",
                                     "700",
                                     "40px",
                                     "40px",

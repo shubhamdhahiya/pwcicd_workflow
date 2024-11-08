@@ -114,7 +114,7 @@ class Testone(BaseClass):
                         "table-cell",
                         "normal",
                         "rgba(21, 44, 108, 1)",
-                        "elza",
+                        "Elza",
                         "25px",
                         "38px",
                         "600",
@@ -248,7 +248,7 @@ class Testone(BaseClass):
                     {
                         "0px",
                         "table-cell",
-                        "elza",
+                        "Elza",
                         "rgba(21, 44, 108, 1)",
                         "28px",
                         "normal",
@@ -379,7 +379,7 @@ class Testone(BaseClass):
                 (
                     "#menu-specialties-1 li a",
                     {
-                        "elza",
+                        "Elza",
                         "600",
                         "0px",
                         "28px",

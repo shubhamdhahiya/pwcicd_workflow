@@ -52,7 +52,7 @@ class Testone(BaseClass):
                 # ),
                 (
                     ".et_pb_blog_extras_21 .et_pb_post.et_pb_post_extra .entry-title a",
-                    {"700", "rgba(255, 255, 255, 1)", "39px", "elza"},
+                    {"700", "rgba(255, 255, 255, 1)", "39px", "Elza"},
                     ["font-weight", "font-size", "color", "font-family"],
                 ),
                 (
@@ -171,7 +171,7 @@ class Testone(BaseClass):
                 # ),
                 (
                     ".et_pb_blog_extras_21 .et_pb_post.et_pb_post_extra .entry-title a",
-                    {"700", "rgba(255, 255, 255, 1)", "39px", "elza"},
+                    {"700", "rgba(255, 255, 255, 1)", "39px", "Elza"},
                     ["font-weight", "font-size", "color", "font-family"],
                 ),
                 (
@@ -291,7 +291,7 @@ class Testone(BaseClass):
                 # ),
                 (
                     ".et_pb_blog_extras_21 .et_pb_post.et_pb_post_extra .entry-title a",
-                    {"700", "rgba(255, 255, 255, 1)", "35px", "elza"},
+                    {"700", "rgba(255, 255, 255, 1)", "35px", "Elza"},
                     ["font-weight", "font-size", "color", "font-family"],
                 ),
                 (
