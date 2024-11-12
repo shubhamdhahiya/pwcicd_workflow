@@ -76,7 +76,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
@@ -268,7 +268,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
@@ -458,7 +458,7 @@ class Testone(BaseClass):
                     {".02em", "500"},
                     ["letter-spacing", "font-weight"],
                 ),
-                (".breadcrumb", {"10px 0"}, ["margin"]),
+                (".breadcrumb", {"10px 0px"}, ["margin"]),
                 (
                     "h1.is_archive",  # present
                     {
