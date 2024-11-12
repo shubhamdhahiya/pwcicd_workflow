@@ -139,7 +139,7 @@ class Testone(BaseClass):
                         "rgba(21, 44, 108, 1)",
                         "normal",
                         "0.5px",
-                        "elza",
+                        "Elza",
                         "0px 0px 20px",
                     },
                     [
@@ -274,7 +274,7 @@ class Testone(BaseClass):
                         "rgba(21, 44, 108, 1)",
                         "normal",
                         "0.5px",
-                        "elza",
+                        "Elza",
                         "0px 0px 20px",
                     },
                     [
@@ -407,7 +407,7 @@ class Testone(BaseClass):
                         "rgba(21, 44, 108, 1)",
                         "normal",
                         "0.5px",
-                        "elza",
+                        "Elza",
                         "0px 20px 6px",
                     },
                     [

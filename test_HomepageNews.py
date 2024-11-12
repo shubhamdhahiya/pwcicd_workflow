@@ -57,7 +57,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#newsSection .newRightblogsec article .post-content h2.entry-title a",
-                    {"left", "23px", "500", "18px", "elza"},
+                    {"left", "23px", "500", "18px", "Elza"},
                     [
                         "text-align",
                         "line-height",
@@ -176,7 +176,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#newsSection .newRightblogsec article .post-content h2.entry-title a",
-                    {"left", "23px", "500", "18px", "elza"},
+                    {"left", "23px", "500", "18px", "Elza"},
                     [
                         "text-align",
                         "line-height",
@@ -296,7 +296,7 @@ class Testone(BaseClass):
                 ),
                 (
                     "#newsSection .newRightblogsec article .post-content h2.entry-title a",
-                    {"left", "23px", "500", "18px", "elza"},
+                    {"left", "23px", "500", "18px", "Elza"},
                     [
                         "text-align",
                         "line-height",

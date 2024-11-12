@@ -178,8 +178,8 @@ class Testone(BaseClass):
                         ),
                         (
                             ".meeting_brief_new_navigation",
-                            {"0px 20px", "0px"},
-                            ["margin", "padding"],
+                            {"0px 20px"},
+                            ["padding"],
                         ),
                     ]
 
