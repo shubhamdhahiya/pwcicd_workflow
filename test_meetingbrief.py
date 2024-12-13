@@ -50,7 +50,7 @@ class Testone(BaseClass):
             Ac = ActionChains(self.driver)
             while True:
                 try:
-                    next = By.XPATH, "//a[@class='next page-numbers']"
+                    next = By.CSS_SELECTOR, "a.next.page-numbers"
                     nextbutton = wait.until(EC.presence_of_element_located(next))
                 except Exception:
                     break
@@ -363,7 +363,7 @@ class Testone(BaseClass):
             Ac = ActionChains(self.driver)
             while True:
                 try:
-                    next = By.XPATH, "//a[@class='next page-numbers']"
+                    next = By.CSS_SELECTOR, "a.next.page-numbers"
                     nextbutton = wait.until(EC.presence_of_element_located(next))
                 except Exception:
                     break
@@ -674,7 +674,7 @@ class Testone(BaseClass):
             Ac = ActionChains(self.driver)
             while True:
                 try:
-                    next = By.XPATH, "//a[@class='next page-numbers']"
+                    next = By.CSS_SELECTOR, "a.next.page-numbers"
                     nextbutton = wait.until(EC.presence_of_element_located(next))
                 except Exception:
                     break

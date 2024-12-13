@@ -164,26 +164,6 @@ class Testone(BaseClass):
                         "margin",
                     ],
                 ),
-                # (
-                #     ".et_pb_section div[class*=et_pb_row_]",
-                #     {
-                #         "100%",
-                #         "55px 0px",
-                #         "1230px",
-                #         "400",
-                #         "57px 0px 0px",
-                #         "30px 20px 40px",
-                #         "0px 10px",
-                #         "7px 20px 43px",
-                #         "0px",
-                #         "1280px",
-                #     },
-                #     [
-                #         "width",
-                #         "padding",
-                #         "font-weight",
-                #     ],
-                # ),
             ]
 
             for (
@@ -339,40 +319,6 @@ class Testone(BaseClass):
                         "margin",
                     ],
                 ),
-                # (
-                #     ".et_pb_section div[class*=et_pb_row_]",
-                #     {
-                #         "30px 0px 0px",
-                #         "0px 0px -26px",
-                #         "20px 20px 0px",
-                #         "0px 20px",
-                #         "40px 0px 0px",
-                #         "4px",
-                #         "0px",
-                #         "5px 4px 5px 0px",
-                #         "713.412px",
-                #         "65px 0px 40px",
-                #         "753.412px",
-                #         "400",
-                #         "30px 20px 40px",
-                #         "55px 0px",
-                #         "0px 10px",
-                #         "57px 0px 0px",
-                #         "0px -4px 0px 0px",
-                #         "65px auto 40px",
-                #         "7px 20px 20px",
-                #         "20px 0px 0px",
-                #         "100%",
-                #         "1280px",
-                #     },
-                #     [
-                #         "width",
-                #         "padding",
-                #         "margin",
-                #         "font-weight",
-                #         "max-width",
-                #     ],
-                # ),
             ]
 
             for (
@@ -526,39 +472,6 @@ class Testone(BaseClass):
                         "margin",
                     ],
                 ),
-                # (
-                #     ".et_pb_section div[class*=et_pb_row_]",
-                #     {
-                #         "7px 20px 20px",
-                #         "1280px",
-                #         "65px 0px 40px",
-                #         "412.19px",
-                #         "65px auto 40px",
-                #         "4px",
-                #         "0px 20px",
-                #         "30px 20px 40px",
-                #         "372.19px",
-                #         "0px -4px 0px 0px",
-                #         "20px 0px 0px",
-                #         "0px 10px",
-                #         "20px 20px 0px",
-                #         "57px 0px 0px",
-                #         "0px",
-                #         "5px 4px 5px 0px",
-                #         "30px 0px 0px",
-                #         "100%",
-                #         "20px 0px",
-                #         "0px 0px -22px",
-                #         "400",
-                #     },
-                #     [
-                #         "width",
-                #         "padding",
-                #         "margin",
-                #         "font-weight",
-                #         "max-width",
-                #     ],
-                # ),
             ]
 
             for (
