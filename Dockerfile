@@ -24,4 +24,4 @@ ENV BROWSERSTACK_USERNAME=ankitsharma_5qd1B8
 ENV BROWSERSTACK_ACCESS_KEY=ygXnpF6wGGoX8TZUqqDt
 
 # Run your tests using pytest with BrowserStack SDK
-CMD ["bash", "-c", "browserstack-sdk  pytest -v -k 'mark'"]
+CMD ["bash", "-c", "browserstack-sdk  pytest -v test_printcssproperties.py"]
