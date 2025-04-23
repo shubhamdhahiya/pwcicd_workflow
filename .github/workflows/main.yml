@@ -2,7 +2,8 @@ name: Build and Run Docker Container
 
 on:
   schedule:
-    - cron: "30 6 * * 1-5"
+    - cron: "30 6 * * 1-5"  # This still keeps the scheduled cron job for weekdays at 6:30 AM
+  workflow_dispatch:  # Allows manual trigger at any time
 
 jobs:
   build-and-run:
