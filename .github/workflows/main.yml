@@ -1,9 +1,9 @@
 name: Build and Run Docker Container
 
 on:
-  schedule:
-    - cron: "30 6 * * 1-5"  # This still keeps the scheduled cron job for weekdays at 6:30 AM
   workflow_dispatch:  # Allows manual trigger at any time
+  schedule:
+    - cron: "30 6 * * 1-5"  # Runs every weekday at 6:30 AM
 
 jobs:
   build-and-run:
@@ -20,5 +20,5 @@ jobs:
         run: docker run pw_image
 
       - name: Set build status output
-        id: set-output
-        run: echo "::set-output name=build_status::success"
+        id: set_output
+        run: echo "build_status=success" >> $GITHUB_OUTPUT
