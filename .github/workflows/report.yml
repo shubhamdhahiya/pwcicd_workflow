@@ -1,17 +1,11 @@
+name: Generate and Email BrowserStack Report
+
 on:
-  workflow_run:
-    workflows: ["Build and Run Docker Container"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   fetch-browserstack-reports:
     runs-on: ubuntu-latest
-    services:
-      fetch_browserstack_reports:
-        image: curlimages/curl:latest
-        ports:
-          - 80:80
     steps:
       - name: "Fetch Builds from BrowserStack"
         run: |
